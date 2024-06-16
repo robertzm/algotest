@@ -2,12 +2,11 @@
 |----|----|----|----|----|
 |1|52.0%|[Two-Sum](https://leetcode.com/problems/two-sum)| easy | v |
 |14|42.5%|[Longest-Common-Prefix](https://leetcode.com/problems/longest-common-prefix)| easy | v |
+|2357|72.1%|[Make-Array-Zero-by-Subtracting-Equal-Amounts](https://leetcode.com/problems/make-array-zero-by-subtracting-equal-amounts)| easy | v |
 |2781|35.6%|[Length-of-the-Longest-Valid-Substring](https://leetcode.com/problems/length-of-the-longest-valid-substring)| unknown | ??? |
 |767|54.5%|[Reorganize-String](https://leetcode.com/problems/reorganize-string)| medium | x |
 |2055|44.2%|[Plates-Between-Candles](https://leetcode.com/problems/plates-between-candles)| unknown | ??? |
-|1152|42.8%|[Analyze-User-Website-Visit-Pattern](https://leetcode.com/problems/analyze-user-website-visit-pattern)| unknown | ??? |
 |42|60.8%|[Trapping-Rain-Water](https://leetcode.com/problems/trapping-rain-water)| unknown | ??? |
-|2357|72.1%|[Make-Array-Zero-by-Subtracting-Equal-Amounts](https://leetcode.com/problems/make-array-zero-by-subtracting-equal-amounts)| unknown | ??? |
 |1531|52.8%|[String-Compression-II](https://leetcode.com/problems/string-compression-ii)| unknown | ??? |
 |2340|72.8%|[Minimum-Adjacent-Swaps-to-Make-a-Valid-Array](https://leetcode.com/problems/minimum-adjacent-swaps-to-make-a-valid-array)| unknown | ??? |
 |2870|61.9%|[Minimum-Number-of-Operations-to-Make-Array-Empty](https://leetcode.com/problems/minimum-number-of-operations-to-make-array-empty)| unknown | ??? |
@@ -137,3 +136,4 @@
 |17|60.0%|[Letter-Combinations-of-a-Phone-Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number)| unknown | ??? |
 |503|63.7%|[Next-Greater-Element-II](https://leetcode.com/problems/next-greater-element-ii)| unknown | ??? |
 |150|51.0%|[Evaluate-Reverse-Polish-Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation)| unknown | ??? |
+|1152|42.8%|[Analyze-User-Website-Visit-Pattern](https://leetcode.com/problems/analyze-user-website-visit-pattern)| locked | ??? |
