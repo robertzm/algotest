@@ -1,2 +1,3 @@
 # algotest
-My first turn of LeetCode in Java.
+LeetCode algorithm practice in Java.
+
