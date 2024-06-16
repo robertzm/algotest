@@ -1,10 +1,11 @@
 |#|Acceptance|Link|Level|Comment|
 |----|----|----|----|----|
+|1|52.0%|[Two-Sum](https://leetcode.com/problems/two-sum)| easy | v |
+|14|42.5%|[Longest-Common-Prefix](https://leetcode.com/problems/longest-common-prefix)| easy | v |
 |2781|35.6%|[Length-of-the-Longest-Valid-Substring](https://leetcode.com/problems/length-of-the-longest-valid-substring)| unknown | ??? |
 |767|54.5%|[Reorganize-String](https://leetcode.com/problems/reorganize-string)| medium | x |
 |2055|44.2%|[Plates-Between-Candles](https://leetcode.com/problems/plates-between-candles)| unknown | ??? |
 |1152|42.8%|[Analyze-User-Website-Visit-Pattern](https://leetcode.com/problems/analyze-user-website-visit-pattern)| unknown | ??? |
-|1|52.0%|[Two-Sum](https://leetcode.com/problems/two-sum)| easy | v |
 |42|60.8%|[Trapping-Rain-Water](https://leetcode.com/problems/trapping-rain-water)| unknown | ??? |
 |2357|72.1%|[Make-Array-Zero-by-Subtracting-Equal-Amounts](https://leetcode.com/problems/make-array-zero-by-subtracting-equal-amounts)| unknown | ??? |
 |1531|52.8%|[String-Compression-II](https://leetcode.com/problems/string-compression-ii)| unknown | ??? |
@@ -60,7 +61,6 @@
 |994|53.9%|[Rotting-Oranges](https://leetcode.com/problems/rotting-oranges)| unknown | ??? |
 |2385|63.0%|[Amount-of-Time-for-Binary-Tree-to-Be-Infected](https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected)| unknown | ??? |
 |56|47.1%|[Merge-Intervals](https://leetcode.com/problems/merge-intervals)| unknown | ??? |
-|14|42.5%|[Longest-Common-Prefix](https://leetcode.com/problems/longest-common-prefix)| unknown | ??? |
 |812|60.3%|[Largest-Triangle-Area](https://leetcode.com/problems/largest-triangle-area)| unknown | ??? |
 |2742|51.1%|[Painting-the-Walls](https://leetcode.com/problems/painting-the-walls)| unknown | ??? |
 |343|60.2%|[Integer-Break](https://leetcode.com/problems/integer-break)| unknown | ??? |
@@ -74,7 +74,6 @@
 |767|54.5%|[Reorganize-String](https://leetcode.com/problems/reorganize-string)| unknown | ??? |
 |2055|44.2%|[Plates-Between-Candles](https://leetcode.com/problems/plates-between-candles)| unknown | ??? |
 |1152|42.8%|[Analyze-User-Website-Visit-Pattern](https://leetcode.com/problems/analyze-user-website-visit-pattern)| unknown | ??? |
-|1|52.0%|[Two-Sum](https://leetcode.com/problems/two-sum)| unknown | ??? |
 |42|60.8%|[Trapping-Rain-Water](https://leetcode.com/problems/trapping-rain-water)| unknown | ??? |
 |2357|72.1%|[Make-Array-Zero-by-Subtracting-Equal-Amounts](https://leetcode.com/problems/make-array-zero-by-subtracting-equal-amounts)| unknown | ??? |
 |1531|52.8%|[String-Compression-II](https://leetcode.com/problems/string-compression-ii)| unknown | ??? |
@@ -130,12 +129,10 @@
 |994|53.9%|[Rotting-Oranges](https://leetcode.com/problems/rotting-oranges)| unknown | ??? |
 |2385|63.0%|[Amount-of-Time-for-Binary-Tree-to-Be-Infected](https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected)| unknown | ??? |
 |56|47.1%|[Merge-Intervals](https://leetcode.com/problems/merge-intervals)| unknown | ??? |
-|14|42.5%|[Longest-Common-Prefix](https://leetcode.com/problems/longest-common-prefix)| unknown | ??? |
 |812|60.3%|[Largest-Triangle-Area](https://leetcode.com/problems/largest-triangle-area)| unknown | ??? |
 |2742|51.1%|[Painting-the-Walls](https://leetcode.com/problems/painting-the-walls)| unknown | ??? |
 |343|60.2%|[Integer-Break](https://leetcode.com/problems/integer-break)| unknown | ??? |
 |128|47.3%|[Longest-Consecutive-Sequence](https://leetcode.com/problems/longest-consecutive-sequence)| unknown | ??? |
-|818|43.6%|[Race-Car](https://leetcode.com/problems/race-car)| unknown | ??? |
 |48|73.9%|[Rotate-Image](https://leetcode.com/problems/rotate-image)| unknown | ??? |
 |17|60.0%|[Letter-Combinations-of-a-Phone-Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number)| unknown | ??? |
 |503|63.7%|[Next-Greater-Element-II](https://leetcode.com/problems/next-greater-element-ii)| unknown | ??? |
