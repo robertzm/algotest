@@ -4,7 +4,7 @@
 |767|54.5%|[Reorganize-String](https://leetcode.com/problems/reorganize-string)| medium | x |
 |2055|44.2%|[Plates-Between-Candles](https://leetcode.com/problems/plates-between-candles)| unknown | ??? |
 |1152|42.8%|[Analyze-User-Website-Visit-Pattern](https://leetcode.com/problems/analyze-user-website-visit-pattern)| unknown | ??? |
-|1|52.0%|[Two-Sum](https://leetcode.com/problems/two-sum)| unknown | ??? |
+|1|52.0%|[Two-Sum](https://leetcode.com/problems/two-sum)| easy | v |
 |42|60.8%|[Trapping-Rain-Water](https://leetcode.com/problems/trapping-rain-water)| unknown | ??? |
 |2357|72.1%|[Make-Array-Zero-by-Subtracting-Equal-Amounts](https://leetcode.com/problems/make-array-zero-by-subtracting-equal-amounts)| unknown | ??? |
 |1531|52.8%|[String-Compression-II](https://leetcode.com/problems/string-compression-ii)| unknown | ??? |
