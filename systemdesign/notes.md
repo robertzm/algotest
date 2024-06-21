@@ -39,6 +39,53 @@ Fan-out: native support on Pub/Sub; need integrate with SNS
 FIFO: only for AWS SQS
 Delay Queue: only on SQS
 
+5. **CDN: Aws CloudFront vs. Google Cloud CDN**:
+CDN: Content Delivery Network is a group of geographically distributed servers that speed up the delivery of web content by bring it closer to where users are.
+
+Distributed Cache with SSL/TLS authentication, and DDoS protection, etc.
+
+6. **Distributed Cache**:
+Distributed cache is a cache shared by multiple app servers, typically maintained as an external service to the app servers that access it.
+
+* AWS ElasticCache : Redis OSS vs. Memcached
+* Google Cloud Redis Cache
+
+| -  | Memcached | Redis OSS |
+|----|-----------|-----------|
+|Sub-millisecond latency | Yes | Yes |
+|Developer ease of use | Yes | Yes |
+|Data partitioning | Yes | Yes |
+|Support for a broad set of programming languages |	Yes | Yes |
+|Advanced data structures | - | Yes |
+|Multithreaded architecture | Yes | - |
+|Snapshots | - | Yes |
+|Replication | - | Yes |
+|Transactions | - | Yes |
+|Pub/Sub | - | Yes |
+|Lua scripting | - | Yes |
+|Geospatial support | - | Yes |
+
+7. **HTTP / HTTPS vs. WebSocket?**
+> https://www.geeksforgeeks.org/what-is-web-socket-and-how-it-is-different-from-the-http/
+
+HTTP/HTTPS and WebSocket both are communication protocols used in client-server communication.
+
+**HTTP/HTTPS**:
+* The HTTP protocol is a unidirectional protocol that works on top of TCP protocol which is a connection-oriented transport layer protocol, we can create the connection by using HTTP request methods after getting the response HTTP connection get closed.
+* Simple RESTful application uses HTTP protocol which is stateless.
+* When we do not want to retain a connection for a particular amount of time or reuse the connection for transmitting data; An HTTP connection is slower than WebSockets.
+
+**WebSocket**:
+* WebSocket is a bidirectional communication protocol that can send the data from the client to the server or from the server to the client by reusing the established connection channel. The connection is kept alive until terminated by either the client or the server.
+* It is a stateful protocol, which means the connection between client and server will keep alive until it is terminated by either party (client or server).
+* Almost all the real-time applications like (trading, monitoring, notification) services use WebSocket to receive the data on a single communication channel.
+* All the frequently updated applications used WebSocket because it is faster than HTTP Connection.
+* Real-time web application / Gaming application / Chat application
+
+8. **Load Balancing: Round Robin vs. Weighted RR vs. Least Connection
+> https://www.geeksforgeeks.org/load-balancing-algorithms/
+
+
 
 ## Terms
 * Scalable
