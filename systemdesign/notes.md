@@ -85,6 +85,32 @@ HTTP/HTTPS and WebSocket both are communication protocols used in client-server 
 8. **Load Balancing: Round Robin vs. Weighted RR vs. Least Connection
 > https://www.geeksforgeeks.org/load-balancing-algorithms/
 
+9. **Datapath Sharding vs. Partitioning?**
+> https://www.baeldung.com/cs/database-sharding-vs-partitioning
+
+Database sharding:
+* sharding is a technique for horizontally partitioning a large database into smaller and more manageable subsets. 
+* By distributing the data across multiple servers, sharding can improve the performance, scalability, and availability of the database. 
+* Some popular strategies utilized in sharding are range-based sharding, hash-based sharding, and composite sharding. 
+* E-commerce app, social media, gaming, etc. 
+
+
+Database Partitioning:
+* partitioning is a method for breaking down a massive database into small subsets. 
+* Partitioning can improve the performance, scalability, and availability of the database.
+* There’re several different techniques for partitioning a database, including range partitioning, list partitioning, and composite partitioning.
+* financial services, IoT apps, healthcare app
+
+Diffs:
+| Database Sharding | Database Partitioning |
+|---|---|
+|distribute data across multiple servers or clusters | divide data within a single database instance|
+|each shard may contain duplicate copy to ensure high availability | No data redundancy within a partition |
+| more administrative overhead | less administrative overhead | 
+| less flexibility | greater flexibility |
+
+9. **Hot Entity Issue vs. Fat Entity Issue**?
+
 
 
 ## Terms
