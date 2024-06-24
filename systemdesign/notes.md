@@ -89,14 +89,14 @@ HTTP/HTTPS and WebSocket both are communication protocols used in client-server 
 > https://www.baeldung.com/cs/database-sharding-vs-partitioning
 
 Database sharding:
-* sharding is a technique for horizontally partitioning a large database into smaller and more manageable subsets. 
-* By distributing the data across multiple servers, sharding can improve the performance, scalability, and availability of the database. 
-* Some popular strategies utilized in sharding are range-based sharding, hash-based sharding, and composite sharding. 
-* E-commerce app, social media, gaming, etc. 
+* sharding is a technique for horizontally partitioning a large database into smaller and more manageable subsets.
+* By distributing the data across multiple servers, sharding can improve the performance, scalability, and availability of the database.
+* Some popular strategies utilized in sharding are range-based sharding, hash-based sharding, and composite sharding.
+* E-commerce app, social media, gaming, etc.
 
 
 Database Partitioning:
-* partitioning is a method for breaking down a massive database into small subsets. 
+* partitioning is a method for breaking down a massive database into small subsets.
 * Partitioning can improve the performance, scalability, and availability of the database.
 * There’re several different techniques for partitioning a database, including range partitioning, list partitioning, and composite partitioning.
 * financial services, IoT apps, healthcare app
@@ -106,10 +106,33 @@ Diffs:
 |---|---|
 |distribute data across multiple servers or clusters | divide data within a single database instance|
 |each shard may contain duplicate copy to ensure high availability | No data redundancy within a partition |
-| more administrative overhead | less administrative overhead | 
+| more administrative overhead | less administrative overhead |
 | less flexibility | greater flexibility |
 
-9. **Hot Entity Issue vs. Fat Entity Issue**?
+10. **Relational DB vs. NoSQL DB**?
+> RDBMS stands for Relational Database Management Systems. It is most popular database. In it, data is store in the form of row that is in the form of tuple. It contain numbers of table and data can be easily accessed because data is store in the table. This Model was proposed by E.F. Codd.
+
+> NoSQL Database stands for a non-SQL database. NoSQL database doesn’t use table to store the data like relational database. It is used for storing and fetching the data in database and generally used to store the large amount of data. It supports query language and provides better performance.
+
+| Relational Database | NoSQL |
+| ---- | ---- |
+| It is used to handle data coming in low velocity. | It is used to handle data coming in high velocity. |
+| It gives only read scalability. | It gives both read and write scalability. |
+| It manages structured data. | It manages all type of data. |
+| Data arrives from one or few locations. | Data arrives from many locations. |
+| It supports complex transactions. | It supports simple transactions. |
+| It has single point of failure. | No single point of failure. |
+| It handles data in less volume. | It handles data in high volume. |
+| Transactions written in one location. | Transactions written in many locations. |
+| support ACID properties compliance | doesn’t support ACID properties |
+| Its difficult to make changes in database once it is defined | Enables easy and frequent changes to database |
+schema  is mandatory to store the data | schema design is not required |
+| Deployed in vertical fashion. | Deployed in Horizontal fashion. |
+
+11. **Cassandra vs. DynamoDB**?
+
+
+10. **Hot Entity Issue vs. Fat Entity Issue**?
 
 
 
