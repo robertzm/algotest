@@ -82,10 +82,10 @@ HTTP/HTTPS and WebSocket both are communication protocols used in client-server 
 * All the frequently updated applications used WebSocket because it is faster than HTTP Connection.
 * Real-time web application / Gaming application / Chat application
 
-8. **Load Balancing: Round Robin vs. Weighted RR vs. Least Connection
+8. **Load Balancing: Round Robin vs. Weighted RR vs. Least Connection**
 > https://www.geeksforgeeks.org/load-balancing-algorithms/
 
-9. **Datapath Sharding vs. Partitioning?**
+9. **Database Sharding vs. Partitioning?**
 > https://www.baeldung.com/cs/database-sharding-vs-partitioning
 
 Database sharding:
@@ -130,7 +130,23 @@ schema  is mandatory to store the data | schema design is not required |
 | Deployed in vertical fashion. | Deployed in Horizontal fashion. |
 
 11. **Cassandra vs. DynamoDB**?
+> https://www.geeksforgeeks.org/cassandra-vs-dynamodb/
 
+ Cassandra and DynamoDB are both NoSQL database, which is scalable and fault-tolerant with high availability.
+
+| **Feature** | **cassandra** | **DynamoDB** |
+| ---- | ---- | ---- |
+| Type | Open-source, distributed NoSQL database designed for scalability and fault tolerance accross geographically distributed clusters. | Fully managed NoSQL database by AWS, offering scalability, fault tolerance, high availability, and predictable performance |
+| Data Model | Wide-column store architecture, allowing for flexible storage of various types of data with dynamic schemas. | Key-value store model storing data in the form of key-value pairs. |
+| Consistency | Offers tunable consistency levels, allowing for a balance between consistency and performance. | Provides strong consistency by default, ensuring that all copies of data are updated simultaneously. (Allow eventual consistency as well. ) |
+| Partitioning | Requires **manual partitioning**, giving users control over how data is distributed across nodes in the cluster. | Utilize **automatic partitioning** managed by AWS, simplifying the scaling process for users. |
+| Scalability | Supports horizontal scaling, enabling users to add more nodes to the clusters. | Offers horizontal scaling managed by AWS, automatically adjusting capacity to handle varying demand. |
+| Secondary Index | Supports secondary indexes, allowing for faster data retrieval based on frequently queried columns. | Supports both Global and Local Secondary Indexes, enhancing query flexibility and performance. |
+| ACID Compliance | Provides limited ACID compliance, offering atomicity, consistency, isolation, and durability to a certain extent. | Ensures ACID properties, providing strong data integrity and reliability. |
+| Query Language | Utilize CQL (Cassandra QL) for interacting with database, offering a familiar SQL-like syntax. | Accessed through AWS SDK and APIs, providing developers with programmatic access to database operations. |
+| Performance | Known for high write and read throughput, making it suitable for rea-time data-intensive applications. | Offers high write and read throughput, ensuring efficient data access and processing for various use cases. |
+
+* **DAX** is available and helpful for high volume read on DynamoDB with distributed Cache features.
 
 10. **Hot Entity Issue vs. Fat Entity Issue**?
 
