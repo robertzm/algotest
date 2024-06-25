@@ -148,6 +148,24 @@ schema  is mandatory to store the data | schema design is not required |
 
 * **DAX** is available and helpful for high volume read on DynamoDB with distributed Cache features.
 
+12. **Long Polling vs. WebSocket**?
+> https://www.geeksforgeeks.org/difference-between-long-polling-and-websocket/
+
+| | **Long Polling** | **WebSocket** | 
+| ---- | ---- | ---- |
+| 1. | It offers a unidirectional communication channel. | It offers a bidirectional communication channel. |
+| 2. | There is an issue of resource wastage. | There is no such issue of resource wastage. |
+| 3. | It has a short waiting period. | It has a long waiting period. |
+| 4. | It does not offer resource utilization. | It offers resource utilization. |
+| 5. | There are not many complications wile enabling a connection process. | There are different complications while enabling a connection process. |
+| 6. | In this, there are several kinds of delays during the process. | In this, there are no delays during the process. | 
+| 7. | It uses AJAX to communicate properly. | It does not use AJAX to communicate over the network. |
+| 8. | It uses HTTP protocal for connection. | It uses TCP/IP protocol for connection. | 
+| 9. | It is easy to implement. | It is difficult to implement when compared with Long Polling. |
+| 10. | Latency problems are there. | There are no latency problems. |
+| 11. | Delay can occur since client always have to make new request after receiving data. | Provides real time updates. | 
+| 12. | Poor scalability since new request has been sent each time. | Highly Scalable due to persistence connection. | 
+
 10. **Hot Entity Issue vs. Fat Entity Issue**?
 
 
