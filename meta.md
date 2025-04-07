@@ -2534,3 +2534,409 @@ class Solution {
     }
 }
 ```
+
+## [207. Course Schedule](https://leetcode.com/problems/course-schedule/description/)
+```
+There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.
+
+    For example, the pair [0, 1], indicates that to take course 0 you have to first take course 1.
+
+Return true if you can finish all courses. Otherwise, return false.
+
+ 
+
+Example 1:
+
+Input: numCourses = 2, prerequisites = [[1,0]]
+Output: true
+Explanation: There are a total of 2 courses to take. 
+To take course 1 you should have finished course 0. So it is possible.
+
+Example 2:
+
+Input: numCourses = 2, prerequisites = [[1,0],[0,1]]
+Output: false
+Explanation: There are a total of 2 courses to take. 
+To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible.
+
+ 
+
+Constraints:
+
+    1 <= numCourses <= 2000
+    0 <= prerequisites.length <= 5000
+    prerequisites[i].length == 2
+    0 <= ai, bi < numCourses
+    All the pairs prerequisites[i] are unique.
+
+
+```
+
+```
+class Solution {
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        List<Integer>[] neigh = new LinkedList[numCourses];
+        Queue<Integer> queue = new LinkedList<>();
+        int[] indegree = new int[numCourses];
+        int count = 0;
+        for (int i = 0; i < numCourses; i++) neigh[i] = new LinkedList<>();
+        for (int[] pair : prerequisites) {
+            neigh[pair[1]].add(pair[0]);
+            indegree[pair[0]]++;
+        }
+        for (int i = 0; i < indegree.length; i++)
+            if (indegree[i] == 0) queue.offer(i);
+        while (!queue.isEmpty()) {
+            int course = queue.poll();
+            count++;
+            for (int adj : neigh[course])
+                if (--indegree[adj] == 0) queue.offer(adj);
+        }
+        return count == numCourses;
+    }
+}
+```
+
+## [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/description/)
+
+```
+There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.
+
+    For example, the pair [0, 1], indicates that to take course 0 you have to first take course 1.
+
+Return the ordering of courses you should take to finish all courses. If there are many valid answers, return any of them. If it is impossible to finish all courses, return an empty array.
+
+ 
+
+Example 1:
+
+Input: numCourses = 2, prerequisites = [[1,0]]
+Output: [0,1]
+Explanation: There are a total of 2 courses to take. To take course 1 you should have finished course 0. So the correct course order is [0,1].
+
+Example 2:
+
+Input: numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]
+Output: [0,2,1,3]
+Explanation: There are a total of 4 courses to take. To take course 3 you should have finished both courses 1 and 2. Both courses 1 and 2 should be taken after you finished course 0.
+So one correct course order is [0,1,2,3]. Another correct ordering is [0,2,1,3].
+
+Example 3:
+
+Input: numCourses = 1, prerequisites = []
+Output: [0]
+
+ 
+
+Constraints:
+
+    1 <= numCourses <= 2000
+    0 <= prerequisites.length <= numCourses * (numCourses - 1)
+    prerequisites[i].length == 2
+    0 <= ai, bi < numCourses
+    ai != bi
+    All the pairs [ai, bi] are distinct.
+
+```
+
+```
+public int[] findOrder(int numCourses, int[][] prerequisites) { 
+    if (numCourses == 0) return null;
+    // Convert graph presentation from edges to indegree of adjacent list.
+    int indegree[] = new int[numCourses], order[] = new int[numCourses], index = 0;
+    for (int i = 0; i < prerequisites.length; i++) // Indegree - how many prerequisites are needed.
+        indegree[prerequisites[i][0]]++;    
+
+    Queue<Integer> queue = new LinkedList<Integer>();
+    for (int i = 0; i < numCourses; i++) 
+        if (indegree[i] == 0) {
+            // Add the course to the order because it has no prerequisites.
+            order[index++] = i;
+            queue.offer(i);
+        }
+
+    // How many courses don't need prerequisites. 
+    while (!queue.isEmpty()) {
+        int prerequisite = queue.poll(); // Already finished this prerequisite course.
+        for (int i = 0; i < prerequisites.length; i++)  {
+            if (prerequisites[i][1] == prerequisite) {
+                indegree[prerequisites[i][0]]--; 
+                if (indegree[prerequisites[i][0]] == 0) {
+                    // If indegree is zero, then add the course to the order.
+                    order[index++] = prerequisites[i][0];
+                    queue.offer(prerequisites[i][0]);
+                }
+            } 
+        }
+    }
+
+    return (index == numCourses) ? order : new int[0];
+}
+```
+
+## [215. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/description/)
+
+```
+Given an integer array nums and an integer k, return the kth largest element in the array.
+
+Note that it is the kth largest element in the sorted order, not the kth distinct element.
+
+Can you solve it without sorting?
+
+ 
+
+Example 1:
+
+Input: nums = [3,2,1,5,6,4], k = 2
+Output: 5
+
+Example 2:
+
+Input: nums = [3,2,3,1,2,4,5,5,6], k = 4
+Output: 4
+
+ 
+
+Constraints:
+
+    1 <= k <= nums.length <= 105
+    -104 <= nums[i] <= 104
+
+```
+
+```
+public class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        int left = 0, right = nums.length - 1;
+        Random rand = new Random();
+        while (true) {
+            int pivot_index = left + rand.nextInt(right - left + 1);
+            int new_pivot_index = partition(nums, left, right, pivot_index);
+            if (new_pivot_index == nums.length - k) {
+                return nums[new_pivot_index];
+            } else if (new_pivot_index > nums.length - k) {
+                right = new_pivot_index - 1;
+            } else {
+                left = new_pivot_index + 1;
+            }
+        }
+    }
+
+    private int partition(int[] nums, int left, int right, int pivot_index) {
+        int pivot = nums[pivot_index];
+        swap(nums, pivot_index, right);
+        int stored_index = left;
+        for (int i = left; i < right; i++) {
+            if (nums[i] < pivot) {
+                swap(nums, i, stored_index);
+                stored_index++;
+            }
+        }
+        swap(nums, right, stored_index);
+        return stored_index;
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+}
+```
+
+## [219. Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/description/)
+
+```
+Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
+
+ 
+
+Example 1:
+
+Input: nums = [1,2,3,1], k = 3
+Output: true
+
+Example 2:
+
+Input: nums = [1,0,1,1], k = 1
+Output: true
+
+Example 3:
+
+Input: nums = [1,2,3,1,2,3], k = 2
+Output: false
+
+ 
+
+Constraints:
+
+    1 <= nums.length <= 105
+    -109 <= nums[i] <= 109
+    0 <= k <= 105
+
+```
+
+```
+public boolean containsNearbyDuplicate(int[] nums, int k) {
+        Set<Integer> set = new HashSet<Integer>();
+        for(int i = 0; i < nums.length; i++){
+            if(i > k) set.remove(nums[i-k-1]);
+            if(!set.add(nums[i])) return true;
+        }
+        return false;
+ }
+```
+
+## [224. Basic Calculator](https://leetcode.com/problems/basic-calculator/description/)
+
+```
+Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation.
+
+Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().
+
+ 
+
+Example 1:
+
+Input: s = "1 + 1"
+Output: 2
+
+Example 2:
+
+Input: s = " 2-1 + 2 "
+Output: 3
+
+Example 3:
+
+Input: s = "(1+(4+5+2)-3)+(6+8)"
+Output: 23
+
+ 
+
+Constraints:
+
+    1 <= s.length <= 3 * 105
+    s consists of digits, '+', '-', '(', ')', and ' '.
+    s represents a valid expression.
+    '+' is not used as a unary operation (i.e., "+1" and "+(2 + 3)" is invalid).
+    '-' could be used as a unary operation (i.e., "-1" and "-(2 + 3)" is valid).
+    There will be no two consecutive operators in the input.
+    Every number and running calculation will fit in a signed 32-bit integer.
+
+```
+
+```
+public int calculate(String s) {
+    Stack<Integer> stack = new Stack<Integer>();
+    int result = 0;
+    int number = 0;
+    int sign = 1;
+    for(int i = 0; i < s.length(); i++){
+        char c = s.charAt(i);
+        if(Character.isDigit(c)){
+            number = 10 * number + (int)(c - '0');
+        }else if(c == '+'){
+            result += sign * number;
+            number = 0;
+            sign = 1;
+        }else if(c == '-'){
+            result += sign * number;
+            number = 0;
+            sign = -1;
+        }else if(c == '('){
+            //we push the result first, then sign;
+            stack.push(result);
+            stack.push(sign);
+            //reset the sign and result for the value in the parenthesis
+            sign = 1;   
+            result = 0;
+        }else if(c == ')'){
+            result += sign * number;  
+            number = 0;
+            result *= stack.pop();    //stack.pop() is the sign before the parenthesis
+            result += stack.pop();   //stack.pop() now is the result calculated before the parenthesis
+            
+        }
+    }
+    if(number != 0) result += sign * number;
+    return result;
+}
+```
+
+## [227. Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/description/)
+
+```
+Given a string s which represents an expression, evaluate this expression and return its value. 
+
+The integer division should truncate toward zero.
+
+You may assume that the given expression is always valid. All intermediate results will be in the range of [-231, 231 - 1].
+
+Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().
+
+ 
+
+Example 1:
+
+Input: s = "3+2*2"
+Output: 7
+
+Example 2:
+
+Input: s = " 3/2 "
+Output: 1
+
+Example 3:
+
+Input: s = " 3+5 / 2 "
+Output: 5
+
+ 
+
+Constraints:
+
+    1 <= s.length <= 3 * 105
+    s consists of integers and operators ('+', '-', '*', '/') separated by some number of spaces.
+    s represents a valid expression.
+    All the integers in the expression are non-negative integers in the range [0, 231 - 1].
+    The answer is guaranteed to fit in a 32-bit integer.
+
+```
+
+```
+public class Solution {
+public int calculate(String s) {
+    int len;
+    if(s==null || (len = s.length())==0) return 0;
+    Stack<Integer> stack = new Stack<Integer>();
+    int num = 0;
+    char sign = '+';
+    for(int i=0;i<len;i++){
+        if(Character.isDigit(s.charAt(i))){
+            num = num*10+s.charAt(i)-'0';
+        }
+        if((!Character.isDigit(s.charAt(i)) &&' '!=s.charAt(i)) || i==len-1){
+            if(sign=='-'){
+                stack.push(-num);
+            }
+            if(sign=='+'){
+                stack.push(num);
+            }
+            if(sign=='*'){
+                stack.push(stack.pop()*num);
+            }
+            if(sign=='/'){
+                stack.push(stack.pop()/num);
+            }
+            sign = s.charAt(i);
+            num = 0;
+        }
+    }
+
+    int re = 0;
+    for(int i:stack){
+        re += i;
+    }
+    return re;
+}
+```
