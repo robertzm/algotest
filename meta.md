@@ -1745,7 +1745,7 @@ Return the total sum of all root-to-leaf numbers. Test cases are generated so th
 
 A leaf node is a node with no children.
 
- 
+
 
 Example 1:
 
@@ -1766,7 +1766,7 @@ The root-to-leaf path 4->9->1 represents the number 491.
 The root-to-leaf path 4->0 represents the number 40.
 Therefore, sum = 495 + 491 + 40 = 1026.
 
- 
+
 
 Constraints:
 
@@ -1790,16 +1790,16 @@ class Solution {
     public int sumNumbers(TreeNode root) {
         return dfs(root, 0);
     }
-    
+
     private int dfs(TreeNode node, int pathSum) {
         if (node == null)
             return 0;
-        
+
         pathSum = pathSum * 10 + node.val;
-        
+
         if (node.left == null && node.right == null)
             return pathSum;
-        
+
         return dfs(node.left, pathSum) + dfs(node.right, pathSum);
     }
 }
@@ -1819,7 +1819,7 @@ class Node {
     public List<Node> neighbors;
 }
 
- 
+
 
 Test case format:
 
@@ -1829,7 +1829,7 @@ An adjacency list is a collection of unordered lists used to represent a finite 
 
 The given node will always be the first node with val = 1. You must return the copy of the given node as a reference to the cloned graph.
 
- 
+
 
 Example 1:
 
@@ -1853,7 +1853,7 @@ Input: adjList = []
 Output: []
 Explanation: This an empty graph, it does not have any nodes.
 
- 
+
 
 Constraints:
 
@@ -1919,7 +1919,7 @@ The linked list is represented in the input/output as a list of n nodes. Each no
 
 Your code will only be given the head of the original linked list.
 
- 
+
 
 Example 1:
 
@@ -1936,7 +1936,7 @@ Example 3:
 Input: head = [[3,null],[3,0],[3,null]]
 Output: [[3,null],[3,0],[3,null]]
 
- 
+
 
 Constraints:
 
@@ -1955,22 +1955,22 @@ Constraints:
 public class Solution {
     public Node copyRandomList(Node head) {
         if (head == null) return null;
-        
+
         HashMap<Node, Node> oldToNew = new HashMap<>();
-        
+
         Node curr = head;
         while (curr != null) {
             oldToNew.put(curr, new Node(curr.val));
             curr = curr.next;
         }
-        
+
         curr = head;
         while (curr != null) {
             oldToNew.get(curr).next = oldToNew.get(curr.next);
             oldToNew.get(curr).random = oldToNew.get(curr.random);
             curr = curr.next;
         }
-        
+
         return oldToNew.get(head);
     }
 }
@@ -1983,7 +1983,7 @@ Given a string s and a dictionary of strings wordDict, add spaces in s to constr
 
 Note that the same word in the dictionary may be reused multiple times in the segmentation.
 
- 
+
 
 Example 1:
 
@@ -2001,7 +2001,7 @@ Example 3:
 Input: s = "catsandog", wordDict = ["cats","dog","sand","and","cat"]
 Output: []
 
- 
+
 
 Constraints:
 
@@ -2067,7 +2067,7 @@ Implement the LRUCache class:
 
 The functions get and put must each run in O(1) average time complexity.
 
- 
+
 
 Example 1:
 
@@ -2089,7 +2089,7 @@ lRUCache.get(1);    // return -1 (not found)
 lRUCache.get(3);    // return 3
 lRUCache.get(4);    // return 4
 
- 
+
 
 Constraints:
 
@@ -2139,7 +2139,7 @@ public class LRUCache {
     private int capacity, count;
     private Map<Integer, Node> map;
     private Node head, tail;
-    
+
     public LRUCache(int capacity) {
         this.capacity = capacity;
         this.count = 0;
@@ -2149,7 +2149,7 @@ public class LRUCache {
         head.next = tail;
         tail.prev = head;
     }
-    
+
     public int get(int key) {
         Node n = map.get(key);
         if(null==n){
@@ -2158,7 +2158,7 @@ public class LRUCache {
         update(n);
         return n.value;
     }
-    
+
     public void set(int key, int value) {
         Node n = map.get(key);
         if(null==n){
@@ -2178,7 +2178,7 @@ public class LRUCache {
             --count;
         }
     }
-    
+
     private void update(Node node){
         remove(node);
         add(node);
@@ -2190,7 +2190,7 @@ public class LRUCache {
         node.next = after;
         after.prev = node;
     }
-    
+
     private void remove(Node node){
         Node before = node.prev, after = node.next;
         before.next = after;
@@ -2210,7 +2210,7 @@ You may imagine that nums[-1] = nums[n] = -∞. In other words, an element is al
 
 You must write an algorithm that runs in O(log n) time.
 
- 
+
 
 Example 1:
 
@@ -2224,7 +2224,7 @@ Input: nums = [1,2,1,3,5,6,4]
 Output: 5
 Explanation: Your function can return either index number 1 where the peak element is 2, or index number 5 where the peak element is 6.
 
- 
+
 
 Constraints:
 
@@ -2238,19 +2238,19 @@ Constraints:
 ```
 class Solution {
     public int findPeakElement(int[] nums) {
-        
+
 		if(nums.length == 1) return 0; // single element
-        
+
         int n = nums.length;
-        
+
 		// check if 0th/n-1th index is the peak element
         if(nums[0] > nums[1]) return 0;
         if(nums[n-1] > nums[n-2]) return n-1;
-		
+
 		// search in the remaining array
         int start = 1;
         int end = n-2;
-        
+
         while(start <= end) {
             int mid = start + (end - start)/2;
             if(nums[mid] > nums[mid-1] && nums[mid] > nums[mid+1]) return mid;
@@ -2272,7 +2272,7 @@ Note:
     Note that in some languages, such as Java, there is no unsigned integer type. In this case, both input and output will be given as a signed integer type. They should not affect your implementation, as the integer's internal binary representation is the same, whether it is signed or unsigned.
     In Java, the compiler represents the signed integers using 2's complement notation. Therefore, in Example 2 above, the input represents the signed integer -3 and the output represents the signed integer -1073741825.
 
- 
+
 
 Example 1:
 
@@ -2286,13 +2286,13 @@ Input: n = 11111111111111111111111111111101
 Output:   3221225471 (10111111111111111111111111111111)
 Explanation: The input binary string 11111111111111111111111111111101 represents the unsigned integer 4294967293, so return 3221225471 which its binary representation is 10111111111111111111111111111111.
 
- 
+
 
 Constraints:
 
     The input must be a binary string of length 32
 
- 
+
 
 Follow up: If this function is called many times, how would you optimize it?
 
@@ -2324,7 +2324,7 @@ public class Solution {
 ```
 Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
 
- 
+
 
 Example 1:
 
@@ -2354,7 +2354,7 @@ Input: root = []
 
 Output: []
 
- 
+
 
 Constraints:
 
@@ -2399,7 +2399,7 @@ public class Solution {
         rightView(root, result, 0);
         return result;
     }
-    
+
     public void rightView(TreeNode curr, List<Integer> result, int currDepth){
         if(curr == null){
             return;
@@ -2407,10 +2407,10 @@ public class Solution {
         if(currDepth == result.size()){
             result.add(curr.val);
         }
-        
+
         rightView(curr.right, result, currDepth + 1);
         rightView(curr.left, result, currDepth + 1);
-        
+
     }
 }
 ```
@@ -2422,7 +2422,7 @@ Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0'
 
 An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
 
- 
+
 
 Example 1:
 
@@ -2444,7 +2444,7 @@ Input: grid = [
 ]
 Output: 3
 
- 
+
 
 Constraints:
 
@@ -2473,7 +2473,7 @@ public int numIslands(char[][] grid) {
                 DFSMarking(grid, i, j);
                 ++count;
             }
-    }    
+    }
     return count;
 }
 
@@ -2493,31 +2493,31 @@ class Solution {
         if (grid == null || grid.length == 0) {
             return 0;
         }
-        
+
         int numIslands = 0;
         int m = grid.length;
         int n = grid[0].length;
         int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-        
+
         Queue<int[]> queue = new ArrayDeque<>();
-        
+
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == '1') {
                     numIslands++;
                     queue.offer(new int[]{i, j});
-                    
+
                     while (!queue.isEmpty()) {
                         int[] curr = queue.poll();
                         int x = curr[0];
                         int y = curr[1];
-                        
+
                         if (x < 0 || x >= m || y < 0 || y >= n || grid[x][y] != '1') {
                             continue;
                         }
-                        
+
                         grid[x][y] = '0'; // mark as visited
-                        
+
                         for (int[] dir : directions) {
                             int nx = x + dir[0];
                             int ny = y + dir[1];
@@ -2529,7 +2529,7 @@ class Solution {
                 }
             }
         }
-        
+
         return numIslands;
     }
 }
@@ -2543,23 +2543,23 @@ There are a total of numCourses courses you have to take, labeled from 0 to numC
 
 Return true if you can finish all courses. Otherwise, return false.
 
- 
+
 
 Example 1:
 
 Input: numCourses = 2, prerequisites = [[1,0]]
 Output: true
-Explanation: There are a total of 2 courses to take. 
+Explanation: There are a total of 2 courses to take.
 To take course 1 you should have finished course 0. So it is possible.
 
 Example 2:
 
 Input: numCourses = 2, prerequisites = [[1,0],[0,1]]
 Output: false
-Explanation: There are a total of 2 courses to take. 
+Explanation: There are a total of 2 courses to take.
 To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible.
 
- 
+
 
 Constraints:
 
@@ -2606,7 +2606,7 @@ There are a total of numCourses courses you have to take, labeled from 0 to numC
 
 Return the ordering of courses you should take to finish all courses. If there are many valid answers, return any of them. If it is impossible to finish all courses, return an empty array.
 
- 
+
 
 Example 1:
 
@@ -2626,7 +2626,7 @@ Example 3:
 Input: numCourses = 1, prerequisites = []
 Output: [0]
 
- 
+
 
 Constraints:
 
@@ -2640,33 +2640,33 @@ Constraints:
 ```
 
 ```
-public int[] findOrder(int numCourses, int[][] prerequisites) { 
+public int[] findOrder(int numCourses, int[][] prerequisites) {
     if (numCourses == 0) return null;
     // Convert graph presentation from edges to indegree of adjacent list.
     int indegree[] = new int[numCourses], order[] = new int[numCourses], index = 0;
     for (int i = 0; i < prerequisites.length; i++) // Indegree - how many prerequisites are needed.
-        indegree[prerequisites[i][0]]++;    
+        indegree[prerequisites[i][0]]++;
 
     Queue<Integer> queue = new LinkedList<Integer>();
-    for (int i = 0; i < numCourses; i++) 
+    for (int i = 0; i < numCourses; i++)
         if (indegree[i] == 0) {
             // Add the course to the order because it has no prerequisites.
             order[index++] = i;
             queue.offer(i);
         }
 
-    // How many courses don't need prerequisites. 
+    // How many courses don't need prerequisites.
     while (!queue.isEmpty()) {
         int prerequisite = queue.poll(); // Already finished this prerequisite course.
         for (int i = 0; i < prerequisites.length; i++)  {
             if (prerequisites[i][1] == prerequisite) {
-                indegree[prerequisites[i][0]]--; 
+                indegree[prerequisites[i][0]]--;
                 if (indegree[prerequisites[i][0]] == 0) {
                     // If indegree is zero, then add the course to the order.
                     order[index++] = prerequisites[i][0];
                     queue.offer(prerequisites[i][0]);
                 }
-            } 
+            }
         }
     }
 
@@ -2683,7 +2683,7 @@ Note that it is the kth largest element in the sorted order, not the kth distinc
 
 Can you solve it without sorting?
 
- 
+
 
 Example 1:
 
@@ -2695,7 +2695,7 @@ Example 2:
 Input: nums = [3,2,3,1,2,4,5,5,6], k = 4
 Output: 4
 
- 
+
 
 Constraints:
 
@@ -2749,7 +2749,7 @@ public class Solution {
 ```
 Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
 
- 
+
 
 Example 1:
 
@@ -2766,7 +2766,7 @@ Example 3:
 Input: nums = [1,2,3,1,2,3], k = 2
 Output: false
 
- 
+
 
 Constraints:
 
@@ -2794,7 +2794,7 @@ Given a string s representing a valid expression, implement a basic calculator t
 
 Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().
 
- 
+
 
 Example 1:
 
@@ -2811,7 +2811,7 @@ Example 3:
 Input: s = "(1+(4+5+2)-3)+(6+8)"
 Output: 23
 
- 
+
 
 Constraints:
 
@@ -2848,14 +2848,14 @@ public int calculate(String s) {
             stack.push(result);
             stack.push(sign);
             //reset the sign and result for the value in the parenthesis
-            sign = 1;   
+            sign = 1;
             result = 0;
         }else if(c == ')'){
-            result += sign * number;  
+            result += sign * number;
             number = 0;
             result *= stack.pop();    //stack.pop() is the sign before the parenthesis
             result += stack.pop();   //stack.pop() now is the result calculated before the parenthesis
-            
+
         }
     }
     if(number != 0) result += sign * number;
@@ -2866,7 +2866,7 @@ public int calculate(String s) {
 ## [227. Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/description/)
 
 ```
-Given a string s which represents an expression, evaluate this expression and return its value. 
+Given a string s which represents an expression, evaluate this expression and return its value.
 
 The integer division should truncate toward zero.
 
@@ -2874,7 +2874,7 @@ You may assume that the given expression is always valid. All intermediate resul
 
 Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().
 
- 
+
 
 Example 1:
 
@@ -2891,7 +2891,7 @@ Example 3:
 Input: s = " 3+5 / 2 "
 Output: 5
 
- 
+
 
 Constraints:
 
@@ -2938,5 +2938,554 @@ public int calculate(String s) {
         re += i;
     }
     return re;
+}
+```
+
+##[236. Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)
+
+```
+Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
+
+According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
+
+
+
+Example 1:
+
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+Output: 3
+Explanation: The LCA of nodes 5 and 1 is 3.
+
+Example 2:
+
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+Output: 5
+Explanation: The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.
+
+Example 3:
+
+Input: root = [1,2], p = 1, q = 2
+Output: 1
+
+
+
+Constraints:
+
+    The number of nodes in the tree is in the range [2, 105].
+    -109 <= Node.val <= 109
+    All Node.val are unique.
+    p != q
+    p and q will exist in the tree.
+
+```
+
+```
+public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    if (root == null || root == p || root == q) return root;
+    TreeNode left = lowestCommonAncestor(root.left, p, q);
+    TreeNode right = lowestCommonAncestor(root.right, p, q);
+    return left == null ? right : right == null ? left : root;
+}
+```
+
+##[249. Group Shifted Strings](https://leetcode.ca/all/249.html)
+```
+Given a string, we can "shift" each of its letter to its successive letter, for example: "abc" -> "bcd". We can keep "shifting" which forms the sequence:
+
+"abc" -> "bcd" -> ... -> "xyz"
+
+Given a list of strings which contains only lowercase alphabets, group all strings that belong to the same shifting sequence.
+
+Example:
+
+Input: ["abc", "bcd", "acef", "xyz", "az", "ba", "a", "z"],
+Output:
+[
+  ["abc","bcd","xyz"],
+  ["az","ba"],
+  ["acef"],
+  ["a","z"]
+]
+```
+
+```
+class Solution {
+    public List<List<String>> groupStrings(String[] strings) {
+        Map<String, List<String>> mp = new HashMap<>();
+        for (String s : strings) {
+            int diff = s.charAt(0) - 'a';
+            char[] t = s.toCharArray();
+            for (int i = 0; i < t.length; ++i) {
+                char d = (char) (t[i] - diff);
+                if (d < 'a') {
+                    d += 26;
+                }
+                t[i] = d;
+            }
+            String key = new String(t);
+            mp.computeIfAbsent(key, k -> new ArrayList<>()).add(s);
+        }
+        return new ArrayList<>(mp.values());
+    }
+}
+
+```
+
+##[266. Palindrome Permutation](https://leetcode.ca/all/266.html)
+```
+Given a string, determine if a permutation of the string could form a palindrome.
+
+Example 1:
+
+Input: "code"
+Output: false
+
+Example 2:
+
+Input: "aab"
+Output: true
+
+Example 3:
+
+Input: "carerac"
+Output: true
+```
+
+```
+class Solution {
+    public boolean canPermutePalindrome(String s) {
+        int[] cnt = new int[26];
+        for (char c : s.toCharArray()) {
+            ++cnt[c - 'a'];
+        }
+        int odd = 0;
+        for (int x : cnt) {
+            odd += x & 1;
+        }
+        return odd < 2;
+    }
+}
+```
+
+##[283. Move Zeroes](https://leetcode.com/problems/move-zeroes/)
+```
+Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+Note that you must do this in-place without making a copy of the array.
+
+
+
+Example 1:
+
+Input: nums = [0,1,0,3,12]
+Output: [1,3,12,0,0]
+
+Example 2:
+
+Input: nums = [0]
+Output: [0]
+
+
+
+Constraints:
+
+    1 <= nums.length <= 104
+    -231 <= nums[i] <= 231 - 1
+
+
+Follow up: Could you minimize the total number of operations done?
+```
+
+```
+public void moveZeroes(int[] nums) {
+    if (nums == null || nums.length == 0) return;
+
+    int insertPos = 0;
+    for (int num: nums) {
+        if (num != 0) nums[insertPos++] = num;
+    }
+
+    while (insertPos < nums.length) {
+        nums[insertPos++] = 0;
+    }
+}
+```
+
+##[295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/description/)
+
+```
+The median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value, and the median is the mean of the two middle values.
+
+    For example, for arr = [2,3,4], the median is 3.
+    For example, for arr = [2,3], the median is (2 + 3) / 2 = 2.5.
+
+Implement the MedianFinder class:
+
+    MedianFinder() initializes the MedianFinder object.
+    void addNum(int num) adds the integer num from the data stream to the data structure.
+    double findMedian() returns the median of all elements so far. Answers within 10-5 of the actual answer will be accepted.
+
+
+
+Example 1:
+
+Input
+["MedianFinder", "addNum", "addNum", "findMedian", "addNum", "findMedian"]
+[[], [1], [2], [], [3], []]
+Output
+[null, null, null, 1.5, null, 2.0]
+
+Explanation
+MedianFinder medianFinder = new MedianFinder();
+medianFinder.addNum(1);    // arr = [1]
+medianFinder.addNum(2);    // arr = [1, 2]
+medianFinder.findMedian(); // return 1.5 (i.e., (1 + 2) / 2)
+medianFinder.addNum(3);    // arr[1, 2, 3]
+medianFinder.findMedian(); // return 2.0
+
+
+
+Constraints:
+
+    -105 <= num <= 105
+    There will be at least one element in the data structure before calling findMedian.
+    At most 5 * 104 calls will be made to addNum and findMedian.
+
+
+
+Follow up:
+
+    If all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+    If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+
+```
+
+```
+class MedianFinder {
+    // max queue is always larger or equal to min queue
+    PriorityQueue<Integer> min = new PriorityQueue();
+    PriorityQueue<Integer> max = new PriorityQueue(1000, Collections.reverseOrder());
+    // Adds a number into the data structure.
+    public void addNum(int num) {
+        max.offer(num);
+        min.offer(max.poll());
+        if (max.size() < min.size()){
+            max.offer(min.poll());
+        }
+    }
+
+    // Returns the median of current data stream
+    public double findMedian() {
+        if (max.size() == min.size()) return (max.peek() + min.peek()) /  2.0;
+        else return max.peek();
+    }
+};
+```
+
+##[301. Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/)
+
+```
+Given a string s that contains parentheses and letters, remove the minimum number of invalid parentheses to make the input string valid.
+
+Return a list of unique strings that are valid with the minimum number of removals. You may return the answer in any order.
+
+
+
+Example 1:
+
+Input: s = "()())()"
+Output: ["(())()","()()()"]
+
+Example 2:
+
+Input: s = "(a)())()"
+Output: ["(a())()","(a)()()"]
+
+Example 3:
+
+Input: s = ")("
+Output: [""]
+
+
+
+Constraints:
+
+    1 <= s.length <= 25
+    s consists of lowercase English letters and parentheses '(' and ')'.
+    There will be at most 20 parentheses in s.
+
+```
+
+```
+class Solution {
+    public List<String> removeInvalidParentheses(String s) {
+        List<String> output = new ArrayList<>();
+        removeHelper(s, output, 0, 0, '(', ')');
+        return output;
+    }
+
+    public void removeHelper(String s, List<String> output, int iStart, int jStart, char openParen, char closedParen) {
+        int numOpenParen = 0, numClosedParen = 0;
+        for (int i = iStart; i < s.length(); i++) {
+            if (s.charAt(i) == openParen) numOpenParen++;
+            if (s.charAt(i) == closedParen) numClosedParen++;
+            if (numClosedParen > numOpenParen) { // We have an extra closed paren we need to remove
+                for (int j = jStart; j <= i; j++) // Try removing one at each position, skipping duplicates
+                    if (s.charAt(j) == closedParen && (j == jStart || s.charAt(j - 1) != closedParen))
+                    // Recursion: iStart = i since we now have valid # closed parenthesis thru i. jStart = j prevents duplicates
+                        removeHelper(s.substring(0, j) + s.substring(j + 1, s.length()), output, i, j, openParen, closedParen);
+                return; // Stop here. The recursive calls handle the rest of the string.
+            }
+        }
+        // No invalid closed parenthesis detected. Now check opposite direction, or reverse back to original direction.
+        String reversed = new StringBuilder(s).reverse().toString();
+        if (openParen == '(')
+            removeHelper(reversed, output, 0, 0, ')','(');
+        else
+            output.add(reversed);
+    }
+}
+```
+
+##[314. Binary Tree Vertical Order Traversal](https://leetcode.ca/all/314.html)
+```
+Given a binary tree, return the vertical order traversal of its nodes' values. (ie, from top to bottom, column by column).
+
+If two nodes are in the same row and column, the order should be from left to right.
+
+Examples 1:
+
+Input: [3,9,20,null,null,15,7]
+
+   3
+  /\
+ /  \
+ 9  20
+    /\
+   /  \
+  15   7
+
+Output:
+
+[
+  [9],
+  [3,15],
+  [20],
+  [7]
+]
+
+Examples 2:
+
+Input: [3,9,8,4,0,1,7]
+
+     3
+    /\
+   /  \
+   9   8
+  /\  /\
+ /  \/  \
+ 4  01   7
+
+Output:
+
+[
+  [4],
+  [9],
+  [3,0,1],
+  [8],
+  [7]
+]
+
+Examples 3:
+
+Input: [3,9,8,4,0,1,7,null,null,null,2,5] (0's right child is 2 and 1's left child is 5)
+
+     3
+    /\
+   /  \
+   9   8
+  /\  /\
+ /  \/  \
+ 4  01   7
+    /\
+   /  \
+   5   2
+
+Output:
+
+[
+  [4],
+  [9,5],
+  [3,0,1],
+  [8,2],
+  [7]
+]
+```
+
+```
+class Solution {
+    public List<List<Integer>> verticalOrder(TreeNode root) {
+        List<List<Integer>> ans = new ArrayList<>();
+        if (root == null) {
+            return ans;
+        }
+        Deque<Pair<TreeNode, Integer>> q = new ArrayDeque<>();
+        q.offer(new Pair<>(root, 0));
+        TreeMap<Integer, List<Integer>> d = new TreeMap<>();
+        while (!q.isEmpty()) {
+            for (int n = q.size(); n > 0; --n) {
+                var p = q.pollFirst();
+                root = p.getKey();
+                int offset = p.getValue();
+                d.computeIfAbsent(offset, k -> new ArrayList()).add(root.val);
+                if (root.left != null) {
+                    q.offer(new Pair<>(root.left, offset - 1));
+                }
+                if (root.right != null) {
+                    q.offer(new Pair<>(root.right, offset + 1));
+                }
+            }
+        }
+        return new ArrayList<>(d.values());
+    }
+}
+```
+
+##[317. Shortest Distance from All Buildings](https://leetcode.ca/all/317.html)
+
+```
+You want to build a house on an empty land which reaches all buildings in the shortest amount of distance. You can only move up, down, left and right. You are given a 2D grid of values 0, 1 or 2, where:
+
+    Each 0 marks an empty land which you can pass by freely.
+    Each 1 marks a building which you cannot pass through.
+    Each 2 marks an obstacle which you cannot pass through.
+
+Example:
+
+Input: [[1,0,2,0,1],[0,0,0,0,0],[0,0,1,0,0]]
+
+1 - 0 - 2 - 0 - 1
+|   |   |   |   |
+0 - 0 - 0 - 0 - 0
+|   |   |   |   |
+0 - 0 - 1 - 0 - 0
+
+Output: 7
+
+Explanation: Given three buildings at (0,0), (0,4), (2,2), and an obstacle at (0,2),
+             the point (1,2) is an ideal empty land to build a house, as the total
+             travel distance of 3+3+1=7 is minimal. So return 7.
+
+Note:
+There will be at least one building. If it is not possible to build such house according to the above rules, return -1.
+```
+
+```
+
+
+class Solution {
+    public int shortestDistance(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        Deque<int[]> q = new LinkedList<>();
+        int total = 0;
+        int[][] cnt = new int[m][n];
+        int[][] dist = new int[m][n];
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 1) {
+                    ++total;
+                    q.offer(new int[] {i, j});
+                    int d = 0;
+                    boolean[][] vis = new boolean[m][n];
+                    while (!q.isEmpty()) {
+                        ++d;
+                        for (int k = q.size(); k > 0; --k) {
+                            int[] p = q.poll();
+                            for (int l = 0; l < 4; ++l) {
+                                int x = p[0] + dirs[l];
+                                int y = p[1] + dirs[l + 1];
+                                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 0
+                                    && !vis[x][y]) {
+                                    ++cnt[x][y];
+                                    dist[x][y] += d;
+                                    q.offer(new int[] {x, y});
+                                    vis[x][y] = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        int ans = Integer.MAX_VALUE;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 0 && cnt[i][j] == total) {
+                    ans = Math.min(ans, dist[i][j]);
+                }
+            }
+        }
+        return ans == Integer.MAX_VALUE ? -1 : ans;
+    }
+}
+```
+
+##[332. Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/description/)
+
+```
+You are given a list of airline tickets where tickets[i] = [fromi, toi] represent the departure and the arrival airports of one flight. Reconstruct the itinerary in order and return it.
+
+All of the tickets belong to a man who departs from "JFK", thus, the itinerary must begin with "JFK". If there are multiple valid itineraries, you should return the itinerary that has the smallest lexical order when read as a single string.
+
+    For example, the itinerary ["JFK", "LGA"] has a smaller lexical order than ["JFK", "LGB"].
+
+You may assume all tickets form at least one valid itinerary. You must use all the tickets once and only once.
+
+
+
+Example 1:
+
+Input: tickets = [["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]]
+Output: ["JFK","MUC","LHR","SFO","SJC"]
+
+Example 2:
+
+Input: tickets = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
+Output: ["JFK","ATL","JFK","SFO","ATL","SFO"]
+Explanation: Another possible reconstruction is ["JFK","SFO","ATL","JFK","ATL","SFO"] but it is larger in lexical order.
+
+
+
+Constraints:
+
+    1 <= tickets.length <= 300
+    tickets[i].length == 2
+    fromi.length == 3
+    toi.length == 3
+    fromi and toi consist of uppercase English letters.
+    fromi != toi
+
+```
+
+```
+class Solution {
+    public List<String> findItinerary(List<List<String>> tickets) {
+
+    for (List<String> ticket : tickets)
+        targets.computeIfAbsent(ticket.get(0), k -> new PriorityQueue()).add(ticket.get(1));
+    visit("JFK");
+    return route;
+}
+
+Map<String, PriorityQueue<String>> targets = new HashMap<>();
+List<String> route = new LinkedList();
+
+void visit(String airport) {
+    while(targets.containsKey(airport) && !targets.get(airport).isEmpty())
+        visit(targets.get(airport).poll());
+    route.add(0, airport);
+}
 }
 ```
