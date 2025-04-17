@@ -3489,3 +3489,635 @@ void visit(String airport) {
 }
 }
 ```
+
+##[339. Nested List Weight Sum](https://leetcode.ca/all/339.html)
+
+```
+Given a nested list of integers, return the sum of all integers in the list weighted by their depth.
+
+Each element is either an integer, or a list -- whose elements may also be integers or other lists.
+
+Example 1:
+
+Input: [[1,1],2,[1,1]]
+Output: 10
+Explanation: Four 1's at depth 2, one 2 at depth 1.
+
+Example 2:
+
+Input: [1,[4,[6]]]
+Output: 27
+Explanation: One 1 at depth 1, one 4 at depth 2, and one 6 at depth 3; 1 + 4*2 + 6*3 = 27.
+```
+
+```
+
+
+/**
+ * // This is the interface that allows for creating nested lists.
+ * // You should not implement it, or speculate about its implementation
+ * public interface NestedInteger {
+ *     // Constructor initializes an empty nested list.
+ *     public NestedInteger();
+ *
+ *     // Constructor initializes a single integer.
+ *     public NestedInteger(int value);
+ *
+ *     // @return true if this NestedInteger holds a single integer, rather than a nested list.
+ *     public boolean isInteger();
+ *
+ *     // @return the single integer that this NestedInteger holds, if it holds a single integer
+ *     // Return null if this NestedInteger holds a nested list
+ *     public Integer getInteger();
+ *
+ *     // Set this NestedInteger to hold a single integer.
+ *     public void setInteger(int value);
+ *
+ *     // Set this NestedInteger to hold a nested list and adds a nested integer to it.
+ *     public void add(NestedInteger ni);
+ *
+ *     // @return the nested list that this NestedInteger holds, if it holds a nested list
+ *     // Return empty list if this NestedInteger holds a single integer
+ *     public List<NestedInteger> getList();
+ * }
+ */
+class Solution {
+    public int depthSum(List<NestedInteger> nestedList) {
+        return dfs(nestedList, 1);
+    }
+
+    private int dfs(List<NestedInteger> nestedList, int depth) {
+        int depthSum = 0;
+        for (NestedInteger item : nestedList) {
+            if (item.isInteger()) {
+                depthSum += item.getInteger() * depth;
+            } else {
+                depthSum += dfs(item.getList(), depth + 1);
+            }
+        }
+        return depthSum;
+    }
+}
+```
+
+##[346. Moving Average from Data Stream](https://leetcode.ca/all/346.html)
+
+```
+Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.
+
+Example:
+
+MovingAverage m = new MovingAverage(3);
+m.next(1) = 1
+m.next(10) = (1 + 10) / 2
+m.next(3) = (1 + 10 + 3) / 3
+m.next(5) = (10 + 3 + 5) / 3
+
+```
+
+```
+class MovingAverage {
+    private int[] arr;
+    private int s;
+    private int cnt;
+
+    public MovingAverage(int size) {
+        arr = new int[size];
+    }
+
+    public double next(int val) {
+        int idx = cnt % arr.length;
+        s += val - arr[idx];
+        arr[idx] = val;
+        ++cnt;
+        return s * 1.0 / Math.min(cnt, arr.length);
+    }
+}
+```
+
+##[347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
+
+```
+Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+
+
+
+Example 1:
+
+Input: nums = [1,1,1,2,2,3], k = 2
+Output: [1,2]
+
+Example 2:
+
+Input: nums = [1], k = 1
+Output: [1]
+
+
+
+Constraints:
+
+    1 <= nums.length <= 105
+    -104 <= nums[i] <= 104
+    k is in the range [1, the number of unique elements in the array].
+    It is guaranteed that the answer is unique.
+
+```
+
+```
+class Solution {
+    public List<Integer> topKFrequent(int[] nums, int k) {
+        // freq map
+        Map<Integer, Integer> freq = new HashMap<Integer, Integer>();
+        for (int n : nums) {
+            freq.put(n, freq.getOrDefault(n, 0) + 1);
+        }
+        // bucket sort on freq
+        List<Integer>[] bucket = new List[nums.length + 1];
+        for (int i = 0; i < bucket.length; i++) bucket[i] = new ArrayList();
+        for (int key : freq.keySet()) {
+            bucket[freq.get(key)].add(key);
+        }
+        // gather result
+        List<Integer> res = new ArrayList();
+        for (int i = bucket.length - 1; i >= 0; i--) {
+            res.addAll(bucket[i]);
+            if (res.size() >= k) break;
+        }
+        return res;
+    }
+}
+```
+
+##[380. Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/description/)
+
+```
+Implement the RandomizedSet class:
+
+    RandomizedSet() Initializes the RandomizedSet object.
+    bool insert(int val) Inserts an item val into the set if not present. Returns true if the item was not present, false otherwise.
+    bool remove(int val) Removes an item val from the set if present. Returns true if the item was present, false otherwise.
+    int getRandom() Returns a random element from the current set of elements (it's guaranteed that at least one element exists when this method is called). Each element must have the same probability of being returned.
+
+You must implement the functions of the class such that each function works in average O(1) time complexity.
+
+
+
+Example 1:
+
+Input
+["RandomizedSet", "insert", "remove", "insert", "getRandom", "remove", "insert", "getRandom"]
+[[], [1], [2], [2], [], [1], [2], []]
+Output
+[null, true, false, true, 2, true, false, 2]
+
+Explanation
+RandomizedSet randomizedSet = new RandomizedSet();
+randomizedSet.insert(1); // Inserts 1 to the set. Returns true as 1 was inserted successfully.
+randomizedSet.remove(2); // Returns false as 2 does not exist in the set.
+randomizedSet.insert(2); // Inserts 2 to the set, returns true. Set now contains [1,2].
+randomizedSet.getRandom(); // getRandom() should return either 1 or 2 randomly.
+randomizedSet.remove(1); // Removes 1 from the set, returns true. Set now contains [2].
+randomizedSet.insert(2); // 2 was already in the set, so return false.
+randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom() will always return 2.
+
+
+
+Constraints:
+
+    -2^31 <= val <= 2^31 - 1
+    At most 2 * 10^5 calls will be made to insert, remove, and getRandom.
+    There will be at least one element in the data structure when getRandom is called.
+
+```
+
+```
+class RandomizedSet {
+    private ArrayList<Integer> list;
+    private Map<Integer, Integer> map;
+
+    public RandomizedSet() {
+        list = new ArrayList<>();
+        map = new HashMap<>();
+    }
+
+    public boolean search(int val) {
+        return map.containsKey(val);
+    }
+
+    public boolean insert(int val) {
+        if (search(val)) return false;
+
+        list.add(val);
+        map.put(val, list.size() - 1);
+        return true;
+    }
+
+    public boolean remove(int val) {
+        if (!search(val)) return false;
+
+        int index = map.get(val);
+        list.set(index, list.get(list.size() - 1));
+        map.put(list.get(index), index);
+        list.remove(list.size() - 1);
+        map.remove(val);
+
+        return true;
+    }
+
+    public int getRandom() {
+        Random rand = new Random();
+        return list.get(rand.nextInt(list.size()));
+    }
+}
+```
+
+##[408. Valid Word Abbreviation](https://leetcode.ca/all/408.html)
+
+```
+ Given a non-empty string s and an abbreviation abbr, return whether the string matches with the given abbreviation.
+
+A string such as "word" contains only the following valid abbreviations:
+
+["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", "1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]
+
+Notice that only the above abbreviations are valid abbreviations of the string "word". Any other string is not a valid abbreviation of "word".
+
+Note:
+Assume s contains only lowercase letters and abbr contains only lowercase letters and digits.
+
+Example 1:
+
+Given s = "internationalization", abbr = "i12iz4n":
+
+Return true.
+
+Example 2:
+
+Given s = "apple", abbr = "a2e":
+
+Return false.
+
+```
+
+```
+class Solution {
+    public boolean validWordAbbreviation(String word, String abbr) {
+        int m = word.length(), n = abbr.length();
+        int i = 0, j = 0, x = 0;
+        for (; i < m && j < n; ++j) {
+            char c = abbr.charAt(j);
+            if (Character.isDigit(c)) {
+                if (c == '0' && x == 0) {
+                    return false;
+                }
+                x = x * 10 + (c - '0');
+            } else {
+                i += x;
+                x = 0;
+                if (i >= m || word.charAt(i) != c) {
+                    return false;
+                }
+                ++i;
+            }
+        }
+        return i + x == m && j == n;
+    }
+}
+```
+
+##[426. Convert Binary Search Tree to Sorted Doubly Linked List](https://leetcode.ca/all/426.html)
+
+```
+Convert a BST to a sorted circular doubly-linked list in-place. Think of the left and right pointers as synonymous to the previous and next pointers in a doubly-linked list.
+
+Let's take the following BST as an example, it may help you understand the problem better:
+
+
+
+
+We want to transform this BST into a circular doubly linked list. Each node in a doubly linked list has a predecessor and successor. For a circular doubly linked list, the predecessor of the first element is the last element, and the successor of the last element is the first element.
+
+The figure below shows the circular doubly linked list for the BST above. The "head" symbol means the node it points to is the smallest element of the linked list.
+
+
+
+
+Specifically, we want to do the transformation in place. After the transformation, the left pointer of the tree node should point to its predecessor, and the right pointer should point to its successor. We should return the pointer to the first element of the linked list.
+
+The figure below shows the transformed BST. The solid line indicates the successor relationship, while the dashed line means the predecessor relationship.
+
+
+```
+
+```
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node left;
+    public Node right;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val,Node _left,Node _right) {
+        val = _val;
+        left = _left;
+        right = _right;
+    }
+};
+*/
+
+class Solution {
+    private Node prev;
+    private Node head;
+
+    public Node treeToDoublyList(Node root) {
+        if (root == null) {
+            return null;
+        }
+        prev = null;
+        head = null;
+        dfs(root);
+        prev.right = head;
+        head.left = prev;
+        return head;
+    }
+
+    private void dfs(Node root) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.left);
+        if (prev != null) {
+            prev.right = root;
+            root.left = prev;
+        } else {
+            head = root;
+        }
+        prev = root;
+        dfs(root.right);
+    }
+}
+```
+
+##[435. Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
+
+```
+Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
+
+Note that intervals which only touch at a point are non-overlapping. For example, [1, 2] and [2, 3] are non-overlapping.
+
+
+
+Example 1:
+
+Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
+Output: 1
+Explanation: [1,3] can be removed and the rest of the intervals are non-overlapping.
+
+Example 2:
+
+Input: intervals = [[1,2],[1,2],[1,2]]
+Output: 2
+Explanation: You need to remove two [1,2] to make the rest of the intervals non-overlapping.
+
+Example 3:
+
+Input: intervals = [[1,2],[2,3]]
+Output: 0
+Explanation: You don't need to remove any of the intervals since they're already non-overlapping.
+
+
+
+Constraints:
+
+    1 <= intervals.length <= 105
+    intervals[i].length == 2
+    -5 * 104 <= starti < endi <= 5 * 104
+
+
+```
+
+```
+class Solution {
+    public int eraseOverlapIntervals(int[][] intervals) {
+        int n = intervals.length;
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[1], b[1]));
+
+        int prev = 0;
+        int count = 1;
+
+        for (int i = 1; i < n; i++) {
+            if (intervals[i][0] >= intervals[prev][1]) {
+                prev = i;
+                count++;
+            }
+        }
+        return n - count;
+    }
+}
+```
+
+##[337. House Robber III](https://leetcode.com/problems/house-robber-iii/description/)
+
+```
+The thief has found himself a new place for his thievery again. There is only one entrance to this area, called root.
+
+Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that all houses in this place form a binary tree. It will automatically contact the police if two directly-linked houses were broken into on the same night.
+
+Given the root of the binary tree, return the maximum amount of money the thief can rob without alerting the police.
+
+
+
+Example 1:
+
+Input: root = [3,2,3,null,3,null,1]
+Output: 7
+Explanation: Maximum amount of money the thief can rob = 3 + 3 + 1 = 7.
+
+Example 2:
+
+Input: root = [3,4,5,1,3,null,1]
+Output: 9
+Explanation: Maximum amount of money the thief can rob = 4 + 5 = 9.
+
+
+
+Constraints:
+
+    The number of nodes in the tree is in the range [1, 104].
+    0 <= Node.val <= 104
+
+```
+
+```
+class Solution {
+    public int rob(TreeNode root) {
+        int ans[] = robHouse(root);
+        return Math.max(ans[0],ans[1]);
+    }
+
+    public int[] robHouse(TreeNode root){
+        if(root==null){
+            return new int[2];
+        }
+
+        int left[] = robHouse(root.left);
+        int right[] = robHouse(root.right);
+
+        int ans[] = new int[2];
+
+        ans[0] = Math.max(left[0],left[1])+Math.max(right[0],right[1]);
+        ans[1] = root.val+left[0]+right[0];
+
+        return ans;
+    }
+}
+```
+
+##[437. Path Sum III](https://leetcode.com/problems/path-sum-iii/)
+
+```
+Given the root of a binary tree and an integer targetSum, return the number of paths where the sum of the values along the path equals targetSum.
+
+The path does not need to start or end at the root or a leaf, but it must go downwards (i.e., traveling only from parent nodes to child nodes).
+
+ 
+
+Example 1:
+
+Input: root = [10,5,-3,3,2,null,11,3,-2,null,1], targetSum = 8
+Output: 3
+Explanation: The paths that sum to 8 are shown.
+
+Example 2:
+
+Input: root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
+Output: 3
+
+ 
+
+Constraints:
+
+    The number of nodes in the tree is in the range [0, 1000].
+    -109 <= Node.val <= 109
+    -1000 <= targetSum <= 1000
+
+
+```
+
+```
+class Solution {
+    int total = 0;
+    public int pathSum(TreeNode root, int sum) {
+        if(root == null) return 0;
+        helper(root, sum, 0);
+        pathSum(root.left, sum);
+        pathSum(root.right, sum);
+        return total;
+    }
+
+    void helper(TreeNode root, int sum, long curr) {
+        if(root == null) return;
+        curr += root.val;
+        if(curr == sum) total++;
+        helper(root.left, sum, curr);
+        helper(root.right, sum, curr);
+    }
+}
+```
+
+##[438. Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)
+
+```
+Given two strings s and p, return an array of all the start indices of p's
+
+in s. You may return the answer in any order.
+
+ 
+
+Example 1:
+
+Input: s = "cbaebabacd", p = "abc"
+Output: [0,6]
+Explanation:
+The substring with start index = 0 is "cba", which is an anagram of "abc".
+The substring with start index = 6 is "bac", which is an anagram of "abc".
+
+Example 2:
+
+Input: s = "abab", p = "ab"
+Output: [0,1,2]
+Explanation:
+The substring with start index = 0 is "ab", which is an anagram of "ab".
+The substring with start index = 1 is "ba", which is an anagram of "ab".
+The substring with start index = 2 is "ab", which is an anagram of "ab".
+
+ 
+
+Constraints:
+
+    1 <= s.length, p.length <= 3 * 104
+    s and p consist of lowercase English letters.
+
+```
+
+```
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        if (s == null || p == null) {
+            throw new IllegalArgumentException("Input string is null");
+        }
+
+        List<Integer> result = new ArrayList<>();
+        int sLen = s.length();
+        int pLen = p.length();
+        if (sLen * pLen == 0 || sLen < pLen) {
+            return result;
+        }
+
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < p.length(); i++) {
+            map.put(p.charAt(i), map.getOrDefault(p.charAt(i), 0) + 1);
+        }
+
+        int toBeMatched = map.size();
+        int start = 0;
+        int end = 0;
+
+        while (end < sLen) {
+            char eChar = s.charAt(end);
+            if (map.containsKey(eChar)) {
+                int count = map.get(eChar);
+                if (count == 1) {
+                    toBeMatched--;
+                }
+                map.put(eChar, count - 1);
+            }
+            end++;
+
+            if (end - start > pLen) {
+                char sChar = s.charAt(start);
+                if (map.containsKey(sChar)) {
+                    int count = map.get(sChar);
+                    if (count == 0) {
+                        toBeMatched++;
+                    }
+                    map.put(sChar, count + 1);
+                }
+                start++;
+            }
+
+            if (toBeMatched == 0) {
+                result.add(start);
+            }
+        }
+
+        return result;
+    }
+}
+```
