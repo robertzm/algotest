@@ -4121,3 +4121,390 @@ class Solution {
     }
 }
 ```
+
+##[443. String Compression](https://leetcode.com/problems/string-compression/)
+
+```
+Given an array of characters chars, compress it using the following algorithm:
+
+Begin with an empty string s. For each group of consecutive repeating characters in chars:
+
+    If the group's length is 1, append the character to s.
+    Otherwise, append the character followed by the group's length.
+
+The compressed string s should not be returned separately, but instead, be stored in the input character array chars. Note that group lengths that are 10 or longer will be split into multiple characters in chars.
+
+After you are done modifying the input array, return the new length of the array.
+
+You must write an algorithm that uses only constant extra space.
+
+ 
+
+Example 1:
+
+Input: chars = ["a","a","b","b","c","c","c"]
+Output: Return 6, and the first 6 characters of the input array should be: ["a","2","b","2","c","3"]
+Explanation: The groups are "aa", "bb", and "ccc". This compresses to "a2b2c3".
+
+Example 2:
+
+Input: chars = ["a"]
+Output: Return 1, and the first character of the input array should be: ["a"]
+Explanation: The only group is "a", which remains uncompressed since it's a single character.
+
+Example 3:
+
+Input: chars = ["a","b","b","b","b","b","b","b","b","b","b","b","b"]
+Output: Return 4, and the first 4 characters of the input array should be: ["a","b","1","2"].
+Explanation: The groups are "a" and "bbbbbbbbbbbb". This compresses to "ab12".
+
+ 
+
+Constraints:
+
+    1 <= chars.length <= 2000
+    chars[i] is a lowercase English letter, uppercase English letter, digit, or symbol.
+
+```
+
+```
+class Solution {
+  public int compress(char[] chars) {
+    int ans = 0; // keep track of current position in compressed array
+
+    // iterate through input array using i pointer
+    for (int i = 0; i < chars.length;) {
+      final char letter = chars[i]; // current character being compressed
+      int count = 0; // count of consecutive occurrences of letter
+
+      // count consecutive occurrences of letter in input array
+      while (i < chars.length && chars[i] == letter) {
+        ++count;
+        ++i;
+      }
+
+      // write letter to compressed array
+      chars[ans++] = letter;
+
+      // if count is greater than 1, write count as string to compressed array
+      if (count > 1) {
+        // convert count to string and iterate over each character in string
+        for (final char c : String.valueOf(count).toCharArray()) {
+          chars[ans++] = c;
+        }
+      }
+    }
+
+    // return length of compressed array
+    return ans;
+  }
+}
+```
+
+##[447. Number of Boomerangs](https://leetcode.com/problems/number-of-boomerangs/)
+
+```
+You are given n points in the plane that are all distinct, where points[i] = [xi, yi]. A boomerang is a tuple of points (i, j, k) such that the distance between i and j equals the distance between i and k (the order of the tuple matters).
+
+Return the number of boomerangs.
+
+ 
+
+Example 1:
+
+Input: points = [[0,0],[1,0],[2,0]]
+Output: 2
+Explanation: The two boomerangs are [[1,0],[0,0],[2,0]] and [[1,0],[2,0],[0,0]].
+
+Example 2:
+
+Input: points = [[1,1],[2,2],[3,3]]
+Output: 2
+
+Example 3:
+
+Input: points = [[1,1]]
+Output: 0
+
+ 
+
+Constraints:
+
+    n == points.length
+    1 <= n <= 500
+    points[i].length == 2
+    -104 <= xi, yi <= 104
+    All the points are unique.
+
+```
+
+```
+public int numberOfBoomerangs(int[][] points) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int count = 0;
+        for (int i = 0; i < points.length; i++) {
+            // clearing map for new search
+            map.clear();
+            for (int j = 0; j < points.length; j++) {
+                // skipping the same point
+                if (i == j) {
+                    continue;
+                }
+                // calculating distance. We will compare distance^2 and get rid of Math.sqrt
+                int distance = (points[j][0] - points[i][0])*(points[j][0] - points[i][0]) 
+                    + (points[j][1] - points[i][1])*(points[j][1] - points[i][1]);
+                // finding number of previously met points with the same distance to i point
+                int size = map.getOrDefault(distance, 0);
+                // adding that number * 2 to result, since j point can be either second or third point in the bumerang
+                count += size++ * 2;
+                // adding increased by 1 size back to map
+                map.put(distance, size);
+            }
+        }
+        return count;
+}
+```
+
+##[494. Target Sum](https://leetcode.com/problems/target-sum/)
+
+```
+You are given an integer array nums and an integer target.
+
+You want to build an expression out of nums by adding one of the symbols '+' and '-' before each integer in nums and then concatenate all the integers.
+
+    For example, if nums = [2, 1], you can add a '+' before 2 and a '-' before 1 and concatenate them to build the expression "+2-1".
+
+Return the number of different expressions that you can build, which evaluates to target.
+
+ 
+
+Example 1:
+
+Input: nums = [1,1,1,1,1], target = 3
+Output: 5
+Explanation: There are 5 ways to assign symbols to make the sum of nums be target 3.
+-1 + 1 + 1 + 1 + 1 = 3
++1 - 1 + 1 + 1 + 1 = 3
++1 + 1 - 1 + 1 + 1 = 3
++1 + 1 + 1 - 1 + 1 = 3
++1 + 1 + 1 + 1 - 1 = 3
+
+Example 2:
+
+Input: nums = [1], target = 1
+Output: 1
+
+ 
+
+Constraints:
+
+    1 <= nums.length <= 20
+    0 <= nums[i] <= 1000
+    0 <= sum(nums[i]) <= 1000
+    -1000 <= target <= 1000
+
+
+```
+
+```
+class Solution {
+    public int findTargetSumWays(int[] nums, int target) {
+        Map<Integer, Integer> counter = new HashMap<>();
+        counter.put(0, 1);
+
+        for (int n : nums) {
+            Map<Integer, Integer> temp = new HashMap<>();
+
+            for (Map.Entry<Integer, Integer> entry : counter.entrySet()) {
+                int total = entry.getKey();
+                int count = entry.getValue();
+
+                temp.put(total + n, temp.getOrDefault(total + n, 0) + count);
+                temp.put(total - n, temp.getOrDefault(total - n, 0) + count);
+            }
+            counter = temp;
+        }
+
+        return counter.getOrDefault(target, 0);        
+    }
+}
+```
+
+##[499. The Maze III](https://leetcode.ca/all/499.html)
+
+```
+There is a ball in a maze with empty spaces and walls. The ball can go through empty spaces by rolling up (u), down (d), left (l) or right (r), but it won't stop rolling until hitting a wall. When the ball stops, it could choose the next direction. There is also a hole in this maze. The ball will drop into the hole if it rolls on to the hole.
+
+Given the ball position, the hole position and the maze, find out how the ball could drop into the hole by moving the shortest distance. The distance is defined by the number of empty spaces traveled by the ball from the start position (excluded) to the hole (included). Output the moving directions by using 'u', 'd', 'l' and 'r'. Since there could be several different shortest ways, you should output the lexicographically smallest Gway. If the ball cannot reach the hole, output "impossible".
+
+The maze is represented by a binary 2D array. 1 means the wall and 0 means the empty space. You may assume that the borders of the maze are all walls. The ball and the hole coordinates are represented by row and column indexes.
+
+ 
+
+Example 1:
+
+Input 1: a maze represented by a 2D array
+
+0 0 0 0 0
+1 1 0 0 1
+0 0 0 0 0
+0 1 0 0 1
+0 1 0 0 0
+
+Input 2: ball coordinate (rowBall, colBall) = (4, 3)
+Input 3: hole coordinate (rowHole, colHole) = (0, 1)
+
+Output: "lul"
+
+Explanation: There are two shortest ways for the ball to drop into the hole.
+The first way is left -> up -> left, represented by "lul".
+The second way is up -> left, represented by 'ul'.
+Both ways have shortest distance 6, but the first way is lexicographically smaller because 'l' < 'u'. So the output is "lul".
+
+Example 2:
+
+Input 1: a maze represented by a 2D array
+
+0 0 0 0 0
+1 1 0 0 1
+0 0 0 0 0
+0 1 0 0 1
+0 1 0 0 0
+
+Input 2: ball coordinate (rowBall, colBall) = (4, 3)
+Input 3: hole coordinate (rowHole, colHole) = (3, 0)
+
+Output: "impossible"
+
+Explanation: The ball cannot reach the hole.
+
+ 
+
+Note:
+
+    There is only one ball and one hole in the maze.
+    Both the ball and hole exist on an empty space, and they will not be at the same position initially.
+    The given maze does not contain border (like the red rectangle in the example pictures), but you could assume the border of the maze are all walls.
+    The maze contains at least 2 empty spaces, and the width and the height of the maze won't exceed 30.
+```
+
+```
+
+
+class Solution {
+    public String findShortestWay(int[][] maze, int[] ball, int[] hole) {
+        int m = maze.length;
+        int n = maze[0].length;
+        int r = ball[0], c = ball[1];
+        int rh = hole[0], ch = hole[1];
+        Deque<int[]> q = new LinkedList<>();
+        q.offer(new int[] {r, c});
+        int[][] dist = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            Arrays.fill(dist[i], Integer.MAX_VALUE);
+        }
+        dist[r][c] = 0;
+        String[][] path = new String[m][n];
+        path[r][c] = "";
+        int[][] dirs = { {-1, 0, 'u'}, {1, 0, 'd'}, {0, -1, 'l'}, {0, 1, 'r'} };
+        while (!q.isEmpty()) {
+            int[] p = q.poll();
+            int i = p[0], j = p[1];
+            for (int[] dir : dirs) {
+                int a = dir[0], b = dir[1];
+                String d = String.valueOf((char) (dir[2]));
+                int x = i, y = j;
+                int step = dist[i][j];
+                while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && maze[x + a][y + b] == 0
+                    && (x != rh || y != ch)) {
+                    x += a;
+                    y += b;
+                    ++step;
+                }
+                if (dist[x][y] > step
+                    || (dist[x][y] == step && (path[i][j] + d).compareTo(path[x][y]) < 0)) {
+                    dist[x][y] = step;
+                    path[x][y] = path[i][j] + d;
+                    if (x != rh || y != ch) {
+                        q.offer(new int[] {x, y});
+                    }
+                }
+            }
+        }
+        return path[rh][ch] == null ? "impossible" : path[rh][ch];
+    }
+}
+```
+
+##[523. Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/)
+
+```
+Given an integer array nums and an integer k, return true if nums has a good subarray or false otherwise.
+
+A good subarray is a subarray where:
+
+    its length is at least two, and
+    the sum of the elements of the subarray is a multiple of k.
+
+Note that:
+
+    A subarray is a contiguous part of the array.
+    An integer x is a multiple of k if there exists an integer n such that x = n * k. 0 is always a multiple of k.
+
+ 
+
+Example 1:
+
+Input: nums = [23,2,4,6,7], k = 6
+Output: true
+Explanation: [2, 4] is a continuous subarray of size 2 whose elements sum up to 6.
+
+Example 2:
+
+Input: nums = [23,2,6,4,7], k = 6
+Output: true
+Explanation: [23, 2, 6, 4, 7] is an continuous subarray of size 5 whose elements sum up to 42.
+42 is a multiple of 6 because 42 = 7 * 6 and 7 is an integer.
+
+Example 3:
+
+Input: nums = [23,2,6,4,7], k = 13
+Output: false
+
+ 
+
+Constraints:
+
+    1 <= nums.length <= 105
+    0 <= nums[i] <= 109
+    0 <= sum(nums[i]) <= 231 - 1
+    1 <= k <= 231 - 1
+
+```
+
+```
+class Solution {
+    public boolean checkSubarraySum(int[] nums, int k) {      
+        // maintain a hash map to store <sum % k, index>
+        Map<Integer, Integer> map = new HashMap<>();
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            sum %= k; 
+            // case 1
+            if (sum == 0 && i > 0) {
+                return true;
+            }
+            // case 2
+            if (map.containsKey(sum) && i - map.get(sum) > 1) { 
+                return true;
+            }
+            if (!map.containsKey(sum)) {
+                map.put(sum, i); 
+            }
+            
+        }
+        return false;
+    }
+}
+```
