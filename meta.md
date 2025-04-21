@@ -4508,3 +4508,531 @@ class Solution {
     }
 }
 ```
+
+##[528. Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)
+
+```
+You are given a 0-indexed array of positive integers w where w[i] describes the weight of the ith index.
+
+You need to implement the function pickIndex(), which randomly picks an index in the range [0, w.length - 1] (inclusive) and returns it. The probability of picking an index i is w[i] / sum(w).
+
+    For example, if w = [1, 3], the probability of picking index 0 is 1 / (1 + 3) = 0.25 (i.e., 25%), and the probability of picking index 1 is 3 / (1 + 3) = 0.75 (i.e., 75%).
+
+ 
+
+Example 1:
+
+Input
+["Solution","pickIndex"]
+[[[1]],[]]
+Output
+[null,0]
+
+Explanation
+Solution solution = new Solution([1]);
+solution.pickIndex(); // return 0. The only option is to return 0 since there is only one element in w.
+
+Example 2:
+
+Input
+["Solution","pickIndex","pickIndex","pickIndex","pickIndex","pickIndex"]
+[[[1,3]],[],[],[],[],[]]
+Output
+[null,1,1,1,1,0]
+
+Explanation
+Solution solution = new Solution([1, 3]);
+solution.pickIndex(); // return 1. It is returning the second element (index = 1) that has a probability of 3/4.
+solution.pickIndex(); // return 1
+solution.pickIndex(); // return 1
+solution.pickIndex(); // return 1
+solution.pickIndex(); // return 0. It is returning the first element (index = 0) that has a probability of 1/4.
+
+Since this is a randomization problem, multiple answers are allowed.
+All of the following outputs can be considered correct:
+[null,1,1,1,1,0]
+[null,1,1,1,1,1]
+[null,1,1,1,0,0]
+[null,1,1,1,0,1]
+[null,1,0,1,0,0]
+......
+and so on.
+
+```
+
+```
+class Solution {
+   
+   private int[] nums;
+   private int total;
+   private Random rand;
+
+   public Solution(int[] w) {
+       this.rand = new Random();
+       
+       for (int i = 1; i < w.length; i++) {
+           w[i] += w[i - 1];
+       }
+       
+       this.nums = w;
+       this.total = w[w.length - 1];
+   }
+   
+   public int pickIndex() {
+       // no numbers to pick!
+       if (this.total == 0)
+           return -1;
+       
+       int n = this.rand.nextInt(this.total) + 1; // the value pulled for {2, 5, 7} could be 0, 1, 2 all the way up to 7; we want a pulled value of 2 to actually coordinate with the second index (5), because three numbers do not fall into the range!
+        
+       //I actually used random.nextInt( wSums[len-1] + 1), and I know why it failed. For wsum[] = {2,7,10,14}, it generates a random value in range [0, 14], totally 15 numbers. If the random number is 0, 1, 2, our code will return index 0, so the probability for selecting the first one is 3/15.
+       
+       // this is the implementation of a left searching binary search
+       int lo = 0, hi = this.nums.length - 1;
+       while (lo < hi) {
+           int mid = lo + (hi - lo) / 2;
+           
+           // pulled the exact value of an index
+           if (this.nums[mid] == n)
+               return mid;
+           else if (this.nums[mid] < n)
+               lo = mid + 1;
+           else
+               hi = mid; // find the leftmost value incase two of the indexes are the same and one is zero
+       }
+       return lo;
+   }
+}
+```
+
+##[543. Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/description/)
+
+```
+Given the root of a binary tree, return the length of the diameter of the tree.
+
+The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
+
+The length of a path between two nodes is represented by the number of edges between them.
+
+ 
+
+Example 1:
+
+Input: root = [1,2,3,4,5]
+Output: 3
+Explanation: 3 is the length of the path [4,2,1,3] or [5,2,1,3].
+
+Example 2:
+
+Input: root = [1,2]
+Output: 1
+
+ 
+
+Constraints:
+
+    The number of nodes in the tree is in the range [1, 104].
+    -100 <= Node.val <= 100
+
+
+```
+
+```
+public class Solution {
+    int diameter;
+
+    public int diameterOfBinaryTree(TreeNode root) {
+        diameter = 0;
+        helper(root);
+        return diameter;
+    }
+
+    private int helper(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int left = helper(root.left);
+        int right = helper(root.right);
+        diameter = Math.max(diameter, left + right);
+        
+        return Math.max(left, right) + 1;
+    }
+}
+```
+
+##[560. Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)
+
+```
+Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.
+
+A subarray is a contiguous non-empty sequence of elements within an array.
+
+ 
+
+Example 1:
+
+Input: nums = [1,1,1], k = 2
+Output: 2
+
+Example 2:
+
+Input: nums = [1,2,3], k = 3
+Output: 2
+
+ 
+
+Constraints:
+
+    1 <= nums.length <= 2 * 104
+    -1000 <= nums[i] <= 1000
+    -107 <= k <= 107
+
+```
+
+```
+public class Solution {
+    public int subarraySum(int[] nums, int k) {
+        int count = 0, sum = 0;
+        HashMap < Integer, Integer > map = new HashMap < > ();
+        map.put(0, 1);
+      
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            if (map.containsKey(sum - k))
+                count += map.get(sum - k);
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        }
+        return count;
+    }
+}
+```
+
+##[658. Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)
+```
+Given a sorted integer array arr, two integers k and x, return the k closest integers to x in the array. The result should also be sorted in ascending order.
+
+An integer a is closer to x than an integer b if:
+
+    |a - x| < |b - x|, or
+    |a - x| == |b - x| and a < b
+
+ 
+
+Example 1:
+
+Input: arr = [1,2,3,4,5], k = 4, x = 3
+
+Output: [1,2,3,4]
+
+Example 2:
+
+Input: arr = [1,1,2,3,4,5], k = 4, x = -1
+
+Output: [1,1,2,3]
+
+ 
+
+Constraints:
+
+    1 <= k <= arr.length
+    1 <= arr.length <= 104
+    arr is sorted in ascending order.
+    -104 <= arr[i], x <= 104
+
+
+```
+
+```
+class Solution {
+    public List<Integer> findClosestElements(int[] arr, int k, int x) {
+
+        int start = 0;
+        int end = arr.length - 1;
+        while (end - start >= k) {
+            if (Math.abs(arr[start] - x) > Math.abs(arr[end] - x)) {
+                start++;
+            } else {
+                end--;
+            }
+        }
+
+        List<Integer> result = new ArrayList<>(k);
+        for (int i = start; i <= end; i++) {
+            result.add(arr[i]);
+        }
+        return result;
+    }
+}
+```
+
+##[680. Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/description/)
+
+```
+Given a string s, return true if the s can be palindrome after deleting at most one character from it.
+
+ 
+
+Example 1:
+
+Input: s = "aba"
+Output: true
+
+Example 2:
+
+Input: s = "abca"
+Output: true
+Explanation: You could delete the character 'c'.
+
+Example 3:
+
+Input: s = "abc"
+Output: false
+
+ 
+
+Constraints:
+
+    1 <= s.length <= 105
+    s consists of lowercase English letters.
+
+
+```
+
+```
+class Solution {
+    public boolean validPalindrome(String s) {
+        int i = 0;
+        int j = s.length() - 1;
+        
+        while(i <= j){
+            if(s.charAt(i) == s.charAt(j)){
+                i++;
+                j--;
+            }
+            else return isPalindrome(s, i + 1, j) || isPalindrome(s, i, j - 1);
+        }
+        return true;
+    }
+
+    public boolean isPalindrome(String s, int i, int j){
+        while(i <= j){
+            if(s.charAt(i) == s.charAt(j)){
+                i++;
+                j--;
+            }
+            else return false;
+        }
+        return true;
+    }
+}
+```
+
+##[721. Accounts Merge](https://leetcode.com/problems/accounts-merge/description/)
+
+```
+Given a list of accounts where each element accounts[i] is a list of strings, where the first element accounts[i][0] is a name, and the rest of the elements are emails representing emails of the account.
+
+Now, we would like to merge these accounts. Two accounts definitely belong to the same person if there is some common email to both accounts. Note that even if two accounts have the same name, they may belong to different people as people could have the same name. A person can have any number of accounts initially, but all of their accounts definitely have the same name.
+
+After merging the accounts, return the accounts in the following format: the first element of each account is the name, and the rest of the elements are emails in sorted order. The accounts themselves can be returned in any order.
+
+ 
+
+Example 1:
+
+Input: accounts = [["John","johnsmith@mail.com","john_newyork@mail.com"],["John","johnsmith@mail.com","john00@mail.com"],["Mary","mary@mail.com"],["John","johnnybravo@mail.com"]]
+Output: [["John","john00@mail.com","john_newyork@mail.com","johnsmith@mail.com"],["Mary","mary@mail.com"],["John","johnnybravo@mail.com"]]
+Explanation:
+The first and second John's are the same person as they have the common email "johnsmith@mail.com".
+The third John and Mary are different people as none of their email addresses are used by other accounts.
+We could return these lists in any order, for example the answer [['Mary', 'mary@mail.com'], ['John', 'johnnybravo@mail.com'], 
+['John', 'john00@mail.com', 'john_newyork@mail.com', 'johnsmith@mail.com']] would still be accepted.
+
+Example 2:
+
+Input: accounts = [["Gabe","Gabe0@m.co","Gabe3@m.co","Gabe1@m.co"],["Kevin","Kevin3@m.co","Kevin5@m.co","Kevin0@m.co"],["Ethan","Ethan5@m.co","Ethan4@m.co","Ethan0@m.co"],["Hanzo","Hanzo3@m.co","Hanzo1@m.co","Hanzo0@m.co"],["Fern","Fern5@m.co","Fern1@m.co","Fern0@m.co"]]
+Output: [["Ethan","Ethan0@m.co","Ethan4@m.co","Ethan5@m.co"],["Gabe","Gabe0@m.co","Gabe1@m.co","Gabe3@m.co"],["Hanzo","Hanzo0@m.co","Hanzo1@m.co","Hanzo3@m.co"],["Kevin","Kevin0@m.co","Kevin3@m.co","Kevin5@m.co"],["Fern","Fern0@m.co","Fern1@m.co","Fern5@m.co"]]
+
+ 
+
+Constraints:
+
+    1 <= accounts.length <= 1000
+    2 <= accounts[i].length <= 10
+    1 <= accounts[i][j].length <= 30
+    accounts[i][0] consists of English letters.
+    accounts[i][j] (for j > 0) is a valid email.
+
+
+```
+
+```
+class Solution {
+     public List<List<String>> accountsMerge(List<List<String>> accounts) {
+        Map<String, Set<String>> graph = new HashMap<>();  //<email node, neighbor nodes>
+        Map<String, String> owner = new HashMap<>();        //<email, username>
+        
+         // Build the graph;
+        for (List<String> account : accounts) {
+            String userName = account.get(0);
+            Set<String> neighbors = new HashSet<>(account);
+            neighbors.remove(userName);
+            
+            for (int i = 1; i < account.size(); i++) {
+                String email = account.get(i);
+                if (!graph.containsKey(email)) {
+                    graph.put(email, new HashSet<>());
+                }
+                graph.get(email).addAll(neighbors);
+                owner.put(email, userName);
+            }
+        }
+        
+        Set<String> visited = new HashSet<>();
+        List<List<String>> results = new ArrayList<>();
+        // DFS search the graph;
+         for (String email : owner.keySet()) {
+             if (!visited.contains(email)) {
+                List<String> result = new ArrayList<>();
+                dfs(graph, email, visited, result);
+                Collections.sort(result);
+                result.add(0, owner.get(email));
+                results.add(result);
+             }
+         }
+        
+        
+        return results;
+    }
+    
+    public void dfs(Map<String, Set<String>> graph, String email, Set<String> visited, List<String> list) {
+        list.add(email);
+        visited.add(email);
+        for (String neighbor: graph.get(email)) {
+            if (!visited.contains(neighbor)) {
+                dfs(graph, neighbor, visited, list);    
+            }
+        }
+    }
+}
+```
+
+##[739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures/description/)
+
+```
+Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day for which this is possible, keep answer[i] == 0 instead.
+
+ 
+
+Example 1:
+
+Input: temperatures = [73,74,75,71,69,72,76,73]
+Output: [1,1,4,2,1,1,0,0]
+
+Example 2:
+
+Input: temperatures = [30,40,50,60]
+Output: [1,1,1,0]
+
+Example 3:
+
+Input: temperatures = [30,60,90]
+Output: [1,1,0]
+
+ 
+
+Constraints:
+
+    1 <= temperatures.length <= 105
+    30 <= temperatures[i] <= 100
+
+```
+
+```
+class Solution {
+    public int[] dailyTemperatures(int[] temps) {
+        int[] results = new int[temps.length];
+        Stack<Integer> stack = new Stack<>();
+        /// UPVOTE !
+        for (int i = 0; i < temps.length; i++) {
+            while (!stack.isEmpty() && temps[stack.peek()] < temps[i]) {
+                results[stack.peek()] = i - stack.pop();
+            }
+            stack.push(i);
+        }
+
+        return results;
+    }
+}
+```
+
+##[791. Custom Sort String](https://leetcode.com/problems/custom-sort-string/description/)
+
+```
+You are given two strings order and s. All the characters of order are unique and were sorted in some custom order previously.
+
+Permute the characters of s so that they match the order that order was sorted. More specifically, if a character x occurs before a character y in order, then x should occur before y in the permuted string.
+
+Return any permutation of s that satisfies this property.
+
+ 
+
+Example 1:
+
+Input: order = "cba", s = "abcd"
+
+Output: "cbad"
+
+Explanation: "a", "b", "c" appear in order, so the order of "a", "b", "c" should be "c", "b", and "a".
+
+Since "d" does not appear in order, it can be at any position in the returned string. "dcba", "cdba", "cbda" are also valid outputs.
+
+Example 2:
+
+Input: order = "bcafg", s = "abcd"
+
+Output: "bcad"
+
+Explanation: The characters "b", "c", and "a" from order dictate the order for the characters in s. The character "d" in s does not appear in order, so its position is flexible.
+
+Following the order of appearance in order, "b", "c", and "a" from s should be arranged as "b", "c", "a". "d" can be placed at any position since it's not in order. The output "bcad" correctly follows this rule. Other arrangements like "dbca" or "bcda" would also be valid, as long as "b", "c", "a" maintain their order.
+
+ 
+
+Constraints:
+
+    1 <= order.length <= 26
+    1 <= s.length <= 200
+    order and s consist of lowercase English letters.
+    All the characters of order are unique.
+
+```
+
+```
+class Solution {
+    public String customSortString(String order, String s) {
+        int [] map = new int [26];
+        for (int i = 0; i < s.length(); i ++) {
+            map[s.charAt(i) - 'a'] ++;
+        }
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < order.length(); i ++) {
+            for (int j = 0; j < map[order.charAt(i) - 'a']; j ++) {
+                result.append(order.charAt(i));
+            }
+            map[order.charAt(i) - 'a'] = 0;
+        }
+
+        for (int i = 0; i < 26; i++) {
+            for (int j = 0; j < map[i]; j++) {
+                result.append((char) ('a' + i));
+            }
+        }
+        //UPVOTE :)
+        return result.toString();
+    }
+}
+```
+
