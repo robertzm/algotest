@@ -5036,3 +5036,1205 @@ class Solution {
 }
 ```
 
+##[1004. Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/)
+
+```
+Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
+
+ 
+
+Example 1:
+
+Input: nums = [1,1,1,0,0,0,1,1,1,1,0], k = 2
+Output: 6
+Explanation: [1,1,1,0,0,1,1,1,1,1,1]
+Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
+
+Example 2:
+
+Input: nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], k = 3
+Output: 10
+Explanation: [0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1]
+Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
+
+ 
+
+Constraints:
+
+    1 <= nums.length <= 105
+    nums[i] is either 0 or 1.
+    0 <= k <= nums.length
+
+
+```
+
+```
+Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
+
+ 
+
+Example 1:
+
+Input: nums = [1,1,1,0,0,0,1,1,1,1,0], k = 2
+Output: 6
+Explanation: [1,1,1,0,0,1,1,1,1,1,1]
+Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
+
+Example 2:
+
+Input: nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], k = 3
+Output: 10
+Explanation: [0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1]
+Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
+
+ 
+
+Constraints:
+
+    1 <= nums.length <= 105
+    nums[i] is either 0 or 1.
+    0 <= k <= nums.length
+
+```
+
+##[1047. Remove All Adjacent Duplicates In String](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/)
+
+```
+You are given a string s consisting of lowercase English letters. A duplicate removal consists of choosing two adjacent and equal letters and removing them.
+
+We repeatedly make duplicate removals on s until we no longer can.
+
+Return the final string after all such duplicate removals have been made. It can be proven that the answer is unique.
+
+ 
+
+Example 1:
+
+Input: s = "abbaca"
+Output: "ca"
+Explanation: 
+For example, in "abbaca" we could remove "bb" since the letters are adjacent and equal, and this is the only possible move.  The result of this move is that the string is "aaca", of which only "aa" is possible, so the final string is "ca".
+
+Example 2:
+
+Input: s = "azxxzy"
+Output: "ay"
+
+ 
+
+Constraints:
+
+    1 <= s.length <= 105
+    s consists of lowercase English letters.
+
+
+```
+
+```
+class Solution {
+    public String removeDuplicates(String s) {
+        Stack<Character> st = new Stack<>();
+        for(int i = 0; i < s.length() ;i++){
+            if(!st.isEmpty()){
+                if(st.peek() == s.charAt(i)){
+                    st.pop();
+                }else{
+                    st.push(s.charAt(i));
+                }
+            }else{
+                st.push(s.charAt(i));
+            }
+        }
+        StringBuilder ns = new StringBuilder("");
+        while(!st.isEmpty()){
+            ns.append(st.pop());
+        }
+        return ns.reverse().toString();
+    }
+}
+```
+
+##[1060. Missing Element in Sorted Array](https://leetcode.ca/all/1060.html)
+
+```
+Given a sorted array A of unique numbers, find the K-th missing number starting from the leftmost number of the array.
+
+ 
+
+Example 1:
+
+Input: A = [4,7,9,10], K = 1
+Output: 5
+Explanation: 
+The first missing number is 5.
+
+Example 2:
+
+Input: A = [4,7,9,10], K = 3
+Output: 8
+Explanation: 
+The missing numbers are [5,6,8,...], hence the third missing number is 8.
+
+Example 3:
+
+Input: A = [1,2,4], K = 3
+Output: 6
+Explanation: 
+The missing numbers are [3,5,6,7,...], hence the third missing number is 6.
+
+ 
+
+Note:
+
+    1 <= A.length <= 50000
+    1 <= A[i] <= 1e7
+    1 <= K <= 1e8
+
+```
+
+```
+class Solution {
+    public int missingElement(int[] nums, int k) {
+        int n = nums.length;
+        if (k > missing(nums, n - 1)) {
+            return nums[n - 1] + k - missing(nums, n - 1);
+        }
+        int l = 0, r = n - 1;
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (missing(nums, mid) >= k) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return nums[l - 1] + k - missing(nums, l - 1);
+    }
+
+    private int missing(int[] nums, int i) {
+        return nums[i] - nums[0] - i;
+    }
+}
+```
+
+##[1091. Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/description/)
+
+```
+Given an n x n binary matrix grid, return the length of the shortest clear path in the matrix. If there is no clear path, return -1.
+
+A clear path in a binary matrix is a path from the top-left cell (i.e., (0, 0)) to the bottom-right cell (i.e., (n - 1, n - 1)) such that:
+
+    All the visited cells of the path are 0.
+    All the adjacent cells of the path are 8-directionally connected (i.e., they are different and they share an edge or a corner).
+
+The length of a clear path is the number of visited cells of this path.
+
+ 
+
+Example 1:
+
+Input: grid = [[0,1],[1,0]]
+Output: 2
+
+Example 2:
+
+Input: grid = [[0,0,0],[1,1,0],[1,1,0]]
+Output: 4
+
+Example 3:
+
+Input: grid = [[1,0,0],[1,1,0],[1,1,0]]
+Output: -1
+
+```
+
+```
+    public int shortestPathBinaryMatrix(int[][] grid) {
+        if (grid == null || grid.length == 0 || grid[0].length == 0) {
+            return -1;
+        }
+
+        int ans = 0;
+
+        int row = grid.length;
+        int col = grid[0].length;
+
+        if (grid[0][0] == 1 || grid[row - 1][col - 1] == 1) {
+            return -1;
+        }
+
+        int[][] dirs = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
+
+        boolean[][] visited = new boolean[row][col];
+
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[]{0, 0});
+        visited[0][0] = true;
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            ans++;
+
+            for (int i = 0; i < size; i++) {
+                int[] curPos = queue.poll();
+
+                if (curPos[0] == row - 1 && curPos[1] == col - 1) {
+                    return ans;
+                }
+
+                for (int[] dir : dirs) {
+                    int nextX = curPos[0] + dir[0];
+                    int nextY = curPos[1] + dir[1];
+
+                    if (nextX < 0 || nextX >= row || nextY < 0 || nextY >= col || visited[nextX][nextY] || grid[nextX][nextY] == 1) {
+                        continue;
+                    }
+
+                    visited[nextX][nextY] = true;
+                    queue.offer(new int[]{nextX, nextY});
+                }
+            }
+        }
+
+        return -1;
+    }
+```
+
+##[1123. Lowest Common Ancestor of Deepest Leaves](https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/)
+
+```
+Given the root of a binary tree, return the lowest common ancestor of its deepest leaves.
+
+Recall that:
+
+    The node of a binary tree is a leaf if and only if it has no children
+    The depth of the root of the tree is 0. if the depth of a node is d, the depth of each of its children is d + 1.
+    The lowest common ancestor of a set S of nodes, is the node A with the largest depth such that every node in S is in the subtree with root A.
+
+ 
+
+Example 1:
+
+Input: root = [3,5,1,6,2,0,8,null,null,7,4]
+Output: [2,7,4]
+Explanation: We return the node with value 2, colored in yellow in the diagram.
+The nodes coloured in blue are the deepest leaf-nodes of the tree.
+Note that nodes 6, 0, and 8 are also leaf nodes, but the depth of them is 2, but the depth of nodes 7 and 4 is 3.
+
+Example 2:
+
+Input: root = [1]
+Output: [1]
+Explanation: The root is the deepest node in the tree, and it's the lca of itself.
+
+Example 3:
+
+Input: root = [0,1,3,null,2]
+Output: [2]
+Explanation: The deepest leaf node in the tree is 2, the lca of one node is itself.
+
+ 
+
+Constraints:
+
+    The number of nodes in the tree will be in the range [1, 1000].
+    0 <= Node.val <= 1000
+    The values of the nodes in the tree are unique.
+
+```
+
+```
+class Solution {
+    class Result {
+        int depth;
+        TreeNode lca;
+        Result(int depth, TreeNode lca) {
+            this.depth = depth;
+            this.lca = lca;
+        }
+    }
+
+    public TreeNode lcaDeepestLeaves(TreeNode root) {
+        return helper(root).lca;
+    }
+
+    private Result helper(TreeNode node) {
+        if (node == null) return new Result(0, null);
+
+        Result left = helper(node.left);
+        Result right = helper(node.right);
+
+        if (left.depth == right.depth) {
+            return new Result(left.depth + 1, node);
+        } else if (left.depth > right.depth) {
+            return new Result(left.depth + 1, left.lca);
+        } else {
+            return new Result(right.depth + 1, right.lca);
+        }
+    }
+}
+```
+
+##[1161. Maximum Level Sum of a Binary Tree](https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/)
+
+```
+Given the root of a binary tree, the level of its root is 1, the level of its children is 2, and so on.
+
+Return the smallest level x such that the sum of all the values of nodes at level x is maximal.
+
+ 
+
+Example 1:
+
+Input: root = [1,7,0,7,-8,null,null]
+Output: 2
+Explanation: 
+Level 1 sum = 1.
+Level 2 sum = 7 + 0 = 7.
+Level 3 sum = 7 + -8 = -1.
+So we return the level with the maximum sum which is level 2.
+
+Example 2:
+
+Input: root = [989,null,10250,98693,-89388,null,null,null,-32127]
+Output: 2
+
+ 
+
+Constraints:
+
+    The number of nodes in the tree is in the range [1, 104].
+    -105 <= Node.val <= 105
+
+```
+
+```
+    public int maxLevelSum(TreeNode root) {
+        int max = Integer.MIN_VALUE, maxLevel = 1;
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        for (int level = 1; !q.isEmpty(); ++level) {
+            int sum = 0;
+            for (int sz = q.size(); sz > 0; --sz) {
+                TreeNode n = q.poll();
+                sum += n.val;
+                if (n.left != null) { 
+                    q.offer(n.left);
+                }
+                if (n.right != null) {
+                    q.offer(n.right);
+                }
+            }
+            if (max < sum) {
+                max = sum;
+                maxLevel = level;
+            }
+        }
+        return maxLevel;
+    }
+```
+
+##[1209. Remove All Adjacent Duplicates in String II](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/)
+```
+You are given a string s and an integer k, a k duplicate removal consists of choosing k adjacent and equal letters from s and removing them, causing the left and the right side of the deleted substring to concatenate together.
+
+We repeatedly make k duplicate removals on s until we no longer can.
+
+Return the final string after all such duplicate removals have been made. It is guaranteed that the answer is unique.
+
+ 
+
+Example 1:
+
+Input: s = "abcd", k = 2
+Output: "abcd"
+Explanation: There's nothing to delete.
+
+Example 2:
+
+Input: s = "deeedbbcccbdaa", k = 3
+Output: "aa"
+Explanation: 
+First delete "eee" and "ccc", get "ddbbbdaa"
+Then delete "bbb", get "dddaa"
+Finally delete "ddd", get "aa"
+
+Example 3:
+
+Input: s = "pbbcggttciiippooaais", k = 2
+Output: "ps"
+
+ 
+
+Constraints:
+
+    1 <= s.length <= 105
+    2 <= k <= 104
+    s only contains lowercase English letters.
+
+
+```
+
+```
+class Solution {
+    public String removeDuplicates(String s, int k) {
+        Stack<CharCounter> stack = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (!stack.isEmpty() && c == stack.peek().c) {
+                if (stack.peek().count == k - 1) {
+                    stack.pop();
+                } else {
+                    stack.peek().count++;
+                }
+            } else {
+                stack.push(new CharCounter(c));
+            }
+        }
+        StringBuilder res = new StringBuilder();
+        for (CharCounter charCount : stack) {
+            res.append(charCount);
+        }
+        return res.toString();
+    }
+}
+
+
+class CharCounter {
+    char c;
+    int count;
+    
+    CharCounter(char c) {
+        this.c = c;
+        this.count = 1;
+    }
+    
+    @Override
+    public String toString() {
+        return Character.toString(c).repeat(count);
+    }
+}
+```
+
+##[1216. Valid Palindrome III](https://leetcode.ca/all/1216.html)
+
+```
+Given a string s and an integer k, find out if the given string is a K-Palindrome or not.
+
+A string is K-Palindrome if it can be transformed into a palindrome by removing at most k characters from it.
+
+ 
+
+Example 1:
+
+Input: s = "abcdeca", k = 2
+Output: true
+Explanation: Remove 'b' and 'e' characters.
+
+ 
+
+Constraints:
+
+    1 <= s.length <= 1000
+    s has only lowercase English letters.
+    1 <= k <= s.length
+
+
+```
+
+```
+class Solution {
+    public boolean isValidPalindrome(String s, int k) {
+        int n = s.length();
+        int[][] f = new int[n][n];
+        for (int i = 0; i < n; ++i) {
+            f[i][i] = 1;
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    f[i][j] = f[i + 1][j - 1] + 2;
+                } else {
+                    f[i][j] = Math.max(f[i + 1][j], f[i][j - 1]);
+                }
+                if (f[i][j] + k >= n) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+```
+
+##[1249. Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/)
+
+```
+Given a string s of '(' , ')' and lowercase English characters.
+
+Your task is to remove the minimum number of parentheses ( '(' or ')', in any positions ) so that the resulting parentheses string is valid and return any valid string.
+
+Formally, a parentheses string is valid if and only if:
+
+    It is the empty string, contains only lowercase characters, or
+    It can be written as AB (A concatenated with B), where A and B are valid strings, or
+    It can be written as (A), where A is a valid string.
+
+ 
+
+Example 1:
+
+Input: s = "lee(t(c)o)de)"
+Output: "lee(t(c)o)de"
+Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
+
+Example 2:
+
+Input: s = "a)b(c)d"
+Output: "ab(c)d"
+
+Example 3:
+
+Input: s = "))(("
+Output: ""
+Explanation: An empty string is also valid.
+
+ 
+
+Constraints:
+
+    1 <= s.length <= 105
+    s[i] is either '(' , ')', or lowercase English letter.
+
+```
+
+```
+class Solution {
+    public String minRemoveToMakeValid(String s) {
+        // Initialize counts for left and right parentheses
+        int leftCount = 0;
+        int rightCount = 0;
+
+        // Use a stack to keep track of valid parentheses
+        Stack<Character> stack = new Stack<>();
+
+        // Pass 1: Iterate through the string and process parentheses
+        for (int i = 0; i < s.length(); i++) {
+            char currentChar = s.charAt(i);
+
+            // Increment count for left parentheses
+            if (currentChar == '(') {
+                leftCount++;
+            }
+            // Increment count for right parentheses
+            if (currentChar == ')') {
+                rightCount++;
+            }
+
+            // If there are more right parentheses than left, skip the current right parenthesis
+            if (rightCount > leftCount) {
+                rightCount--; // Decrease right count
+                continue;     // Skip processing this right parenthesis
+            } else {
+                stack.push(currentChar); // Add valid parentheses to the stack
+            }
+        }
+
+        // Pass 2: Reconstruct the string using the valid parentheses in the stack
+        StringBuilder result = new StringBuilder();
+        while (!stack.isEmpty()) {
+            char currentChar = stack.pop();
+            // If there are more left parentheses than right, skip the current left parenthesis
+            if (leftCount > rightCount && currentChar == '(') {
+                leftCount--; // Decrease left count
+                // Do nothing, skip this left parenthesis
+            } else {
+                result.append(currentChar); // Add valid parentheses to the result
+            }
+        }
+
+        // Reverse the result string and return
+        return result.reverse().toString();
+    }
+}
+```
+
+##[1382. Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree/)
+
+```
+Given the root of a binary search tree, return a balanced binary search tree with the same node values. If there is more than one answer, return any of them.
+
+A binary search tree is balanced if the depth of the two subtrees of every node never differs by more than 1.
+
+ 
+
+Example 1:
+
+Input: root = [1,null,2,null,3,null,4,null,null]
+Output: [2,1,3,null,null,null,4]
+Explanation: This is not the only correct answer, [3,1,4,null,2] is also correct.
+
+Example 2:
+
+Input: root = [2,1,3]
+Output: [2,1,3]
+
+ 
+
+Constraints:
+
+    The number of nodes in the tree is in the range [1, 104].
+    1 <= Node.val <= 105
+
+
+```
+
+```
+class Solution {
+    public TreeNode balanceBST(TreeNode root) {
+        List<Integer> sortedElements = new ArrayList<>();
+        inOrderTraversal(root, sortedElements);
+        return buildBalancedBST(sortedElements, 0, sortedElements.size() - 1);
+    }
+    
+    private void inOrderTraversal(TreeNode node, List<Integer> sortedElements) {
+        if (node == null) {
+            return;
+        }
+        inOrderTraversal(node.left, sortedElements);
+        sortedElements.add(node.val);
+        inOrderTraversal(node.right, sortedElements);
+    }
+    
+    private TreeNode buildBalancedBST(List<Integer> elements, int start, int end) {
+        if (start > end) {
+            return null;
+        }
+        int mid = start + (end - start) / 2;
+        TreeNode node = new TreeNode(elements.get(mid));
+        node.left = buildBalancedBST(elements, start, mid - 1);
+        node.right = buildBalancedBST(elements, mid + 1, end);
+        return node;
+    }
+}
+```
+
+##[1539. Kth Missing Positive Number](https://leetcode.com/problems/kth-missing-positive-number/description/)
+
+```
+Given an array arr of positive integers sorted in a strictly increasing order, and an integer k.
+
+Return the kth positive integer that is missing from this array.
+
+ 
+
+Example 1:
+
+Input: arr = [2,3,4,7,11], k = 5
+Output: 9
+Explanation: The missing positive integers are [1,5,6,8,9,10,12,13,...]. The 5th missing positive integer is 9.
+
+Example 2:
+
+Input: arr = [1,2,3,4], k = 2
+Output: 6
+Explanation: The missing positive integers are [5,6,7,...]. The 2nd missing positive integer is 6.
+
+ 
+
+Constraints:
+
+    1 <= arr.length <= 1000
+    1 <= arr[i] <= 1000
+    1 <= k <= 1000
+    arr[i] < arr[j] for 1 <= i < j <= arr.length
+
+```
+
+```
+class Solution {
+    public int findKthPositive(int[] arr, int k) {
+        int left = 0, right = arr.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] - mid - 1 < k) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left + k;
+    }
+}
+```
+
+##[1570. Dot Product of Two Sparse Vectors](https://leetcode.ca/all/1570.html)
+
+```
+
+
+Given two sparse vectors, compute their dot product.
+
+Implement class SparseVector:
+
+    SparseVector(nums) Initializes the object with the vector nums
+    dotProduct(vec) Compute the dot product between the instance of SparseVector and vec
+
+A sparse vector is a vector that has mostly zero values, you should store the sparse vector efficiently and compute the dot product between two SparseVector.
+
+Follow up: What if only one of the vectors is sparse?
+
+ 
+
+Example 1:
+
+Input: nums1 = [1,0,0,2,3], nums2 = [0,3,0,4,0]
+Output: 8
+Explanation: v1 = SparseVector(nums1) , v2 = SparseVector(nums2)
+v1.dotProduct(v2) = 1*0 + 0*3 + 0*0 + 2*4 + 3*0 = 8
+
+Example 2:
+
+Input: nums1 = [0,1,0,0,0], nums2 = [0,0,0,0,2]
+Output: 0
+Explanation: v1 = SparseVector(nums1) , v2 = SparseVector(nums2)
+v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
+
+Example 3:
+
+Input: nums1 = [0,1,0,0,2,0,0], nums2 = [1,0,0,0,3,0,4]
+Output: 6
+
+ 
+
+Constraints:
+
+    n == nums1.length == nums2.length
+    1 <= n <= 10^5
+    0 <= nums1[i], nums2[i] <= 100
+
+
+```
+
+```
+class SparseVector {
+    public Map<Integer, Integer> d = new HashMap<>(128);
+
+    SparseVector(int[] nums) {
+        for (int i = 0; i < nums.length; ++i) {
+            if (nums[i] != 0) {
+                d.put(i, nums[i]);
+            }
+        }
+    }
+
+    // Return the dotProduct of two sparse vectors
+    public int dotProduct(SparseVector vec) {
+        var a = d;
+        var b = vec.d;
+        if (b.size() < a.size()) {
+            var t = a;
+            a = b;
+            b = t;
+        }
+        int ans = 0;
+        for (var e : a.entrySet()) {
+            int i = e.getKey(), v = e.getValue();
+            ans += v * b.getOrDefault(i, 0);
+        }
+        return ans;
+    }
+}
+```
+
+##[1644. Lowest Common Ancestor of a Binary Tree II](https://leetcode.ca/all/1644.html)
+
+```
+Given the root of a binary tree, return the lowest common ancestor (LCA) of two given nodes, p and q. If either node p or q does not exist in the tree, return null. All values of the nodes in the tree are unique.
+
+According to the definition of LCA on Wikipedia: "The lowest common ancestor of two nodes p and q in a binary tree T is the lowest node that has both p and q as descendants (where we allow a node to be a descendant of itself)". A descendant of a node x is a node y that is on the path from node x to some leaf node.
+
+ 
+
+Example 1:
+
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+Output: 3
+Explanation: The LCA of nodes 5 and 1 is 3.
+
+Example 2:
+
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+Output: 5
+Explanation: The LCA of nodes 5 and 4 is 5. A node can be a descendant of itself according to the definition of LCA.
+
+Example 3:
+
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 10
+Output: null
+Explanation: Node 10 does not exist in the tree, so return null.
+
+ 
+
+Constraints:
+
+    The number of nodes in the tree is in the range [1, 104].
+    -109 <= Node.val <= 109
+    All Node.val are unique.
+    p != q
+
+ 
+Follow up: Can you find the LCA traversing the tree, without checking nodes existence?
+```
+
+```
+class Solution {
+    public TreeNode ancestor = null;
+    public TreeNode p = null, q = null;
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        findNodes(root, p, q);
+        if (p == null || q == null)
+            return null;
+        depthFirstSearch(root, p, q);
+        return ancestor;
+    }
+
+    public void findNodes(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null)
+            return;
+        if (root == p)
+            this.p = p;
+        else if (root == q)
+            this.q = q;
+        findNodes(root.left, p, q);
+        findNodes(root.right, p, q);
+    }
+
+    public boolean depthFirstSearch(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null)
+            return false;
+        boolean left = depthFirstSearch(root.left, p, q);
+        boolean right = depthFirstSearch(root.right, p, q);
+        if (left && right || ((root.val == p.val || root.val == q.val) && (left || right)))
+            ancestor = root;
+        return left || right || (root.val == p.val || root.val == q.val);
+    }
+}
+
+
+public class Solution_followup {
+
+    // 计数找到了p和q的多少个节点
+    private int count = 0;
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        TreeNode res = lca(root, p, q);
+        // 如果都找到了，就可以返回res了，否则说明某个节点不存在，返回null
+        return count == 2 ? res : null;
+    }
+
+    // 功能是返回p与q都存在的情况下的lca
+    private TreeNode lca(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) {
+            return null;
+        }
+
+        // 在左右两边找p和q
+        TreeNode left = lca(root.left, p, q), right = lca(root.right, p, q);
+
+        // 如果当前树根就是p或q，那计数加1，并且root就是lca（在p和q都存在于树的情况下）
+        if (root == p || root == q) {
+            count++;
+            return root;
+        }
+
+        // 如果左子树里找不到p和q，那lca就在右边，如果右子树找不到p和q那lca就在左边，
+        // 否则就是左右都找到了，返回当前树根
+        if (left == null) {
+            return right;
+        } else if (right == null) {
+            return left;
+        } else {
+            return root;
+        }
+    }
+}
+```
+
+##[1650. Lowest Common Ancestor of a Binary Tree III](https://leetcode.ca/all/1650.html)
+
+```
+
+
+Given two nodes of a binary tree p and q, return their lowest common ancestor (LCA).
+
+Each node will have a reference to its parent node. The definition for Node is below:
+
+class Node {
+    public int val;
+    public Node left;
+    public Node right;
+    public Node parent;
+}
+
+According to the definition of LCA on Wikipedia: "The lowest common ancestor of two nodes p and q in a tree T is the lowest node that has both p and q as descendants (where we allow a node to be a descendant of itself)."
+
+ 
+
+Example 1:
+
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+Output: 3
+Explanation: The LCA of nodes 5 and 1 is 3.
+
+Example 2:
+
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+Output: 5
+Explanation: The LCA of nodes 5 and 4 is 5 since a node can be a descendant of itself according to the LCA definition.
+
+Example 3:
+
+Input: root = [1,2], p = 1, q = 2
+Output: 1
+
+ 
+
+Constraints:
+
+    The number of nodes in the tree is in the range [2, 105].
+    -109 <= Node.val <= 109
+    All Node.val are unique.
+    p != q
+    p and q exist in the tree.
+
+
+```
+
+```
+
+class Solution {
+    public Node lowestCommonAncestor(Node p, Node q) {
+        Set<Node> set = new HashSet<Node>();
+        Node temp = p;
+        while (temp != null) {
+            set.add(temp);
+            temp = temp.parent;
+        }
+        temp = q;
+        while (temp != null) {
+            if (set.contains(temp))
+                break;
+            else
+                temp = temp.parent;
+        }
+        return temp;
+    }
+}
+```
+
+##[1762. Buildings With an Ocean View](https://leetcode.ca/all/1762.html)
+
+```
+There are n buildings in a line. You are given an integer array heights of size n that represents the heights of the buildings in the line.
+
+The ocean is to the right of the buildings. A building has an ocean view if the building can see the ocean without obstructions. Formally, a building has an ocean view if all the buildings to its right have a smaller height.
+
+Return a list of indices (0-indexed) of buildings that have an ocean view, sorted in increasing order.
+
+ 
+
+Example 1:
+
+Input: heights = [4,2,3,1]
+Output: [0,2,3]
+Explanation: Building 1 (0-indexed) does not have an ocean view because building 2 is taller.
+
+Example 2:
+
+Input: heights = [4,3,2,1]
+Output: [0,1,2,3]
+Explanation: All the buildings have an ocean view.
+
+Example 3:
+
+Input: heights = [1,3,2,4]
+Output: [3]
+Explanation: Only building 3 has an ocean view.
+
+Example 4:
+
+Input: heights = [2,2,2,2]
+Output: [3]
+Explanation: Buildings cannot see the ocean if there are buildings of the same height to its right.
+
+ 
+
+Constraints:
+
+    1 <= heights.length <= 105
+    1 <= heights[i] <= 109
+
+
+```
+
+```
+class Solution {
+    public int[] findBuildings(int[] heights) {
+        int mx = 0;
+        LinkedList<Integer> ans = new LinkedList<>();
+        for (int i = heights.length - 1; i >= 0; --i) {
+            int v = heights[i];
+            if (mx < v) {
+                ans.addFirst(i);
+                mx = v;
+            }
+        }
+        return ans.stream().mapToInt(i -> i).toArray();
+    }
+}
+```
+
+##[1778. Shortest Path in a Hidden Grid](https://leetcode.ca/all/1778.html)
+
+```
+This is an interactive problem.
+
+You are given a robot in a hidden grid, and it wants to go to a target cell in this grid. The grid is of size m x n, and each cell in the grid can be empty or blocked. It is guaranteed that the start point and the robot's destination are different, and neither of them is blocked.
+
+You want to find the robot's minimum distance to the target cell. However, you do not know the grid's dimensions, or the starting point of the robot, or its target destination. You are only allowed to ask queries to your GridMaster object.
+
+You are given a class GridMaster which you can call the following functions from:
+
+    boolean GridMaster.canMove(char direction) returns true if the robot can move in that direction. Otherwise, it returns false.
+    void GridMaster.move(char direction) moves the robot in that direction. If this move would move the robot to a blocked cell or off the grid, it will be ignored, and the robot would remain in the same position.
+    boolean GridMaster.isTarget() returns true if the robot is currently on the target cell. Otherwise, it returns false.
+
+Note that direction in the above functions should be a character from {'U','D','L','R'}, representing the directions up, down, left, and right, respectively.
+
+Return the minimum distance between the robot's initial starting cell and the target cell if there is a path between them. Otherwise, return -1.
+
+Custom testing:
+
+The test input is read as a 2D matrix grid of size m x n where:
+
+    grid[i][j] == -1 indicates that the robot is in cell (i, j).
+    grid[i][j] == 0 indicates that the cell (i, j) is blocked.
+    grid[i][j] == 1 indicates that the cell (i, j) is empty.
+    grid[i][j] == 2 indicates that the cell (i, j) is the target cell.
+
+There is exactly one -1 and 2 in grid. Remember that you will not have this information in your code.
+
+ 
+
+Example 1:
+
+Input: grid = [[1,2],[-1,0]]
+Output: 2
+Explanation: One possible interaction is described below:
+The robot is initially standing on cell (1, 0), denoted by the -1.
+- master.canMove('U') returns True.
+- master.canMove('D') returns False.
+- master.canMove('L') returns False.
+- master.canMove('R') returns False.
+- master.move('U') moves the robot to the cell (0, 0).
+- master.isTarget() returns False.
+- master.canMove('U') returns False.
+- master.canMove('D') returns True.
+- master.canMove('L') returns False.
+- master.canMove('R') returns True.
+- master.move('R') moves the robot to the cell (0, 1).
+- master.isTarget() returns True.
+We now know that the target is the cell (0, 1), and the shortest path to the target is 2.
+
+Example 2:
+
+Input: grid = [[0,0,-1],[1,1,1],[2,0,0]]
+Output: 4
+Explanation: The minimum distance between the robot and the target is 4.
+
+Example 3:
+
+Input: grid = [[-1,0],[0,2]]
+Output: -1
+Explanation: There is no path from the robot to the target cell.
+
+ 
+
+Constraints:
+
+    m == grid.length
+    n == grid[i].length
+    1 <= n, m <= 500
+    grid[i][j] is either -1, 0, 1, or 2.
+    There is exactly one -1 in grid.
+    There is exactly one 2 in grid.
+
+
+```
+
+```
+
+class Solution {
+    static final int MAX = 500;
+    char[] directionsChar = {'U', 'L', 'D', 'R'};
+    int[][] directionsArr = { {-1, 0}, {0, -1}, {1, 0}, {0, 1} };
+    boolean flag = false;
+
+    public int findShortestPath(GridMaster master) {
+        Set<String> visited1 = new HashSet<String>();
+        int[][] grid = new int[MAX * 2][MAX * 2];
+        grid[MAX][MAX] = -1;
+        depthFirstSearch(MAX, MAX, visited1, grid, master);
+        if (!flag)
+            return -1;
+        int distance = 0;
+        boolean[][] visited2 = new boolean[MAX * 2][MAX * 2];
+        visited2[MAX][MAX] = true;
+        Queue<int[]> queue = new LinkedList<int[]>();
+        queue.offer(new int[]{MAX, MAX});
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                int[] cell = queue.poll();
+                int row = cell[0], column = cell[1];
+                if (grid[row][column] == 2)
+                    return distance;
+                for (int[] directionArr : directionsArr) {
+                    int newRow = row + directionArr[0], newColumn = column + directionArr[1];
+                    if (!visited2[newRow][newColumn] && grid[newRow][newColumn] != 0) {
+                        visited2[newRow][newColumn] = true;
+                        queue.offer(new int[]{newRow, newColumn});
+                    }
+                }
+            }
+            distance++;
+        }
+        return -1;
+    }
+
+    public void depthFirstSearch(int row, int column, Set<String> visited, int[][] grid, GridMaster master) {
+        grid[row][column] = 1;
+        if (master.isTarget()) {
+            grid[row][column] = 2;
+            flag = true;
+        }
+        for (int i = 0; i < 4; i++) {
+            char directionChar = directionsChar[i];
+            char oppositeDirectionChar = directionsChar[(i + 2) % 4];
+            int[] directionArr = directionsArr[i];
+            int newRow = row + directionArr[0], newColumn = column + directionArr[1];
+            String newStr = Arrays.toString(new int[]{newRow, newColumn});
+            if (!visited.contains(newStr) && master.canMove(directionChar)) {
+                visited.add(newStr);
+                master.move(directionChar);
+                depthFirstSearch(newRow, newColumn, visited, grid, master);
+                master.move(oppositeDirectionChar);
+            }
+        }
+    }
+}
+```
+
+
