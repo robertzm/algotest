@@ -419,7 +419,7 @@ class Solution {
 }
 ```
 
-## [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+## [34.Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 
 ```
 Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
@@ -2941,7 +2941,7 @@ public int calculate(String s) {
 }
 ```
 
-##[236. Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)
+## [236. Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)
 
 ```
 Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
@@ -2988,7 +2988,7 @@ public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 }
 ```
 
-##[249. Group Shifted Strings](https://leetcode.ca/all/249.html)
+## [249. Group Shifted Strings](https://leetcode.ca/all/249.html)
 ```
 Given a string, we can "shift" each of its letter to its successive letter, for example: "abc" -> "bcd". We can keep "shifting" which forms the sequence:
 
@@ -3031,7 +3031,7 @@ class Solution {
 
 ```
 
-##[266. Palindrome Permutation](https://leetcode.ca/all/266.html)
+## [266. Palindrome Permutation](https://leetcode.ca/all/266.html)
 ```
 Given a string, determine if a permutation of the string could form a palindrome.
 
@@ -3067,7 +3067,7 @@ class Solution {
 }
 ```
 
-##[283. Move Zeroes](https://leetcode.com/problems/move-zeroes/)
+## [283. Move Zeroes](https://leetcode.com/problems/move-zeroes/)
 ```
 Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
 
@@ -3111,7 +3111,7 @@ public void moveZeroes(int[] nums) {
 }
 ```
 
-##[295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/description/)
+## [295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/description/)
 
 ```
 The median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value, and the median is the mean of the two middle values.
@@ -3182,7 +3182,7 @@ class MedianFinder {
 };
 ```
 
-##[301. Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/)
+## [301. Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/)
 
 ```
 Given a string s that contains parentheses and letters, remove the minimum number of invalid parentheses to make the input string valid.
@@ -3247,7 +3247,7 @@ class Solution {
 }
 ```
 
-##[314. Binary Tree Vertical Order Traversal](https://leetcode.ca/all/314.html)
+## [314. Binary Tree Vertical Order Traversal](https://leetcode.ca/all/314.html)
 ```
 Given a binary tree, return the vertical order traversal of its nodes' values. (ie, from top to bottom, column by column).
 
@@ -3351,7 +3351,7 @@ class Solution {
 }
 ```
 
-##[317. Shortest Distance from All Buildings](https://leetcode.ca/all/317.html)
+## [317. Shortest Distance from All Buildings](https://leetcode.ca/all/317.html)
 
 ```
 You want to build a house on an empty land which reaches all buildings in the shortest amount of distance. You can only move up, down, left and right. You are given a 2D grid of values 0, 1 or 2, where:
@@ -3432,7 +3432,7 @@ class Solution {
 }
 ```
 
-##[332. Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/description/)
+## [332. Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/description/)
 
 ```
 You are given a list of airline tickets where tickets[i] = [fromi, toi] represent the departure and the arrival airports of one flight. Reconstruct the itinerary in order and return it.
@@ -3490,7 +3490,7 @@ void visit(String airport) {
 }
 ```
 
-##[339. Nested List Weight Sum](https://leetcode.ca/all/339.html)
+## [339. Nested List Weight Sum](https://leetcode.ca/all/339.html)
 
 ```
 Given a nested list of integers, return the sum of all integers in the list weighted by their depth.
@@ -3560,7 +3560,7 @@ class Solution {
 }
 ```
 
-##[346. Moving Average from Data Stream](https://leetcode.ca/all/346.html)
+## [346. Moving Average from Data Stream](https://leetcode.ca/all/346.html)
 
 ```
 Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.
@@ -3595,7 +3595,7 @@ class MovingAverage {
 }
 ```
 
-##[347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
+## [347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
 
 ```
 Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
@@ -3648,7 +3648,7 @@ class Solution {
 }
 ```
 
-##[380. Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/description/)
+## [380. Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/description/)
 
 ```
 Implement the RandomizedSet class:
@@ -3731,7 +3731,7 @@ class RandomizedSet {
 }
 ```
 
-##[408. Valid Word Abbreviation](https://leetcode.ca/all/408.html)
+## [408. Valid Word Abbreviation](https://leetcode.ca/all/408.html)
 
 ```
  Given a non-empty string s and an abbreviation abbr, return whether the string matches with the given abbreviation.
@@ -3785,7 +3785,7 @@ class Solution {
 }
 ```
 
-##[426. Convert Binary Search Tree to Sorted Doubly Linked List](https://leetcode.ca/all/426.html)
+## [. Convert Binary Search Tree to Sorted Doubly Linked List](https://leetcode.ca/all/426.html)
 
 ```
 Convert a BST to a sorted circular doubly-linked list in-place. Think of the left and right pointers as synonymous to the previous and next pointers in a doubly-linked list.
@@ -3864,7 +3864,7 @@ class Solution {
 }
 ```
 
-##[435. Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
+## [435. Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
 
 ```
 Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
@@ -3922,7 +3922,7 @@ class Solution {
 }
 ```
 
-##[337. House Robber III](https://leetcode.com/problems/house-robber-iii/description/)
+## [337. House Robber III](https://leetcode.com/problems/house-robber-iii/description/)
 
 ```
 The thief has found himself a new place for his thievery again. There is only one entrance to this area, called root.
@@ -3979,14 +3979,14 @@ class Solution {
 }
 ```
 
-##[437. Path Sum III](https://leetcode.com/problems/path-sum-iii/)
+## [437. Path Sum III](https://leetcode.com/problems/path-sum-iii/)
 
 ```
 Given the root of a binary tree and an integer targetSum, return the number of paths where the sum of the values along the path equals targetSum.
 
 The path does not need to start or end at the root or a leaf, but it must go downwards (i.e., traveling only from parent nodes to child nodes).
 
- 
+
 
 Example 1:
 
@@ -3999,7 +3999,7 @@ Example 2:
 Input: root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
 Output: 3
 
- 
+
 
 Constraints:
 
@@ -4031,14 +4031,14 @@ class Solution {
 }
 ```
 
-##[438. Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)
+## [438. Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)
 
 ```
 Given two strings s and p, return an array of all the start indices of p's
 
 in s. You may return the answer in any order.
 
- 
+
 
 Example 1:
 
@@ -4057,7 +4057,7 @@ The substring with start index = 0 is "ab", which is an anagram of "ab".
 The substring with start index = 1 is "ba", which is an anagram of "ab".
 The substring with start index = 2 is "ab", which is an anagram of "ab".
 
- 
+
 
 Constraints:
 
@@ -4122,7 +4122,7 @@ class Solution {
 }
 ```
 
-##[443. String Compression](https://leetcode.com/problems/string-compression/)
+## [443. String Compression](https://leetcode.com/problems/string-compression/)
 
 ```
 Given an array of characters chars, compress it using the following algorithm:
@@ -4138,7 +4138,7 @@ After you are done modifying the input array, return the new length of the array
 
 You must write an algorithm that uses only constant extra space.
 
- 
+
 
 Example 1:
 
@@ -4158,7 +4158,7 @@ Input: chars = ["a","b","b","b","b","b","b","b","b","b","b","b","b"]
 Output: Return 4, and the first 4 characters of the input array should be: ["a","b","1","2"].
 Explanation: The groups are "a" and "bbbbbbbbbbbb". This compresses to "ab12".
 
- 
+
 
 Constraints:
 
@@ -4201,14 +4201,14 @@ class Solution {
 }
 ```
 
-##[447. Number of Boomerangs](https://leetcode.com/problems/number-of-boomerangs/)
+## [447. Number of Boomerangs](https://leetcode.com/problems/number-of-boomerangs/)
 
 ```
 You are given n points in the plane that are all distinct, where points[i] = [xi, yi]. A boomerang is a tuple of points (i, j, k) such that the distance between i and j equals the distance between i and k (the order of the tuple matters).
 
 Return the number of boomerangs.
 
- 
+
 
 Example 1:
 
@@ -4226,7 +4226,7 @@ Example 3:
 Input: points = [[1,1]]
 Output: 0
 
- 
+
 
 Constraints:
 
@@ -4251,7 +4251,7 @@ public int numberOfBoomerangs(int[][] points) {
                     continue;
                 }
                 // calculating distance. We will compare distance^2 and get rid of Math.sqrt
-                int distance = (points[j][0] - points[i][0])*(points[j][0] - points[i][0]) 
+                int distance = (points[j][0] - points[i][0])*(points[j][0] - points[i][0])
                     + (points[j][1] - points[i][1])*(points[j][1] - points[i][1]);
                 // finding number of previously met points with the same distance to i point
                 int size = map.getOrDefault(distance, 0);
@@ -4265,7 +4265,7 @@ public int numberOfBoomerangs(int[][] points) {
 }
 ```
 
-##[494. Target Sum](https://leetcode.com/problems/target-sum/)
+## [494. Target Sum](https://leetcode.com/problems/target-sum/)
 
 ```
 You are given an integer array nums and an integer target.
@@ -4276,7 +4276,7 @@ You want to build an expression out of nums by adding one of the symbols '+' and
 
 Return the number of different expressions that you can build, which evaluates to target.
 
- 
+
 
 Example 1:
 
@@ -4294,7 +4294,7 @@ Example 2:
 Input: nums = [1], target = 1
 Output: 1
 
- 
+
 
 Constraints:
 
@@ -4325,12 +4325,12 @@ class Solution {
             counter = temp;
         }
 
-        return counter.getOrDefault(target, 0);        
+        return counter.getOrDefault(target, 0);
     }
 }
 ```
 
-##[499. The Maze III](https://leetcode.ca/all/499.html)
+## [499. The Maze III](https://leetcode.ca/all/499.html)
 
 ```
 There is a ball in a maze with empty spaces and walls. The ball can go through empty spaces by rolling up (u), down (d), left (l) or right (r), but it won't stop rolling until hitting a wall. When the ball stops, it could choose the next direction. There is also a hole in this maze. The ball will drop into the hole if it rolls on to the hole.
@@ -4339,7 +4339,7 @@ Given the ball position, the hole position and the maze, find out how the ball c
 
 The maze is represented by a binary 2D array. 1 means the wall and 0 means the empty space. You may assume that the borders of the maze are all walls. The ball and the hole coordinates are represented by row and column indexes.
 
- 
+
 
 Example 1:
 
@@ -4378,7 +4378,7 @@ Output: "impossible"
 
 Explanation: The ball cannot reach the hole.
 
- 
+
 
 Note:
 
@@ -4436,7 +4436,7 @@ class Solution {
 }
 ```
 
-##[523. Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/)
+## [523. Continuous Subarray Sum](https://leetcode.com/problems/continuous-subarray-sum/)
 
 ```
 Given an integer array nums and an integer k, return true if nums has a good subarray or false otherwise.
@@ -4451,7 +4451,7 @@ Note that:
     A subarray is a contiguous part of the array.
     An integer x is a multiple of k if there exists an integer n such that x = n * k. 0 is always a multiple of k.
 
- 
+
 
 Example 1:
 
@@ -4471,7 +4471,7 @@ Example 3:
 Input: nums = [23,2,6,4,7], k = 13
 Output: false
 
- 
+
 
 Constraints:
 
@@ -4484,32 +4484,32 @@ Constraints:
 
 ```
 class Solution {
-    public boolean checkSubarraySum(int[] nums, int k) {      
+    public boolean checkSubarraySum(int[] nums, int k) {
         // maintain a hash map to store <sum % k, index>
         Map<Integer, Integer> map = new HashMap<>();
         int sum = 0;
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
-            sum %= k; 
+            sum %= k;
             // case 1
             if (sum == 0 && i > 0) {
                 return true;
             }
             // case 2
-            if (map.containsKey(sum) && i - map.get(sum) > 1) { 
+            if (map.containsKey(sum) && i - map.get(sum) > 1) {
                 return true;
             }
             if (!map.containsKey(sum)) {
-                map.put(sum, i); 
+                map.put(sum, i);
             }
-            
+
         }
         return false;
     }
 }
 ```
 
-##[528. Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)
+## [528. Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)
 
 ```
 You are given a 0-indexed array of positive integers w where w[i] describes the weight of the ith index.
@@ -4518,7 +4518,7 @@ You need to implement the function pickIndex(), which randomly picks an index in
 
     For example, if w = [1, 3], the probability of picking index 0 is 1 / (1 + 3) = 0.25 (i.e., 25%), and the probability of picking index 1 is 3 / (1 + 3) = 0.75 (i.e., 75%).
 
- 
+
 
 Example 1:
 
@@ -4562,36 +4562,36 @@ and so on.
 
 ```
 class Solution {
-   
+
    private int[] nums;
    private int total;
    private Random rand;
 
    public Solution(int[] w) {
        this.rand = new Random();
-       
+
        for (int i = 1; i < w.length; i++) {
            w[i] += w[i - 1];
        }
-       
+
        this.nums = w;
        this.total = w[w.length - 1];
    }
-   
+
    public int pickIndex() {
        // no numbers to pick!
        if (this.total == 0)
            return -1;
-       
+
        int n = this.rand.nextInt(this.total) + 1; // the value pulled for {2, 5, 7} could be 0, 1, 2 all the way up to 7; we want a pulled value of 2 to actually coordinate with the second index (5), because three numbers do not fall into the range!
-        
+
        //I actually used random.nextInt( wSums[len-1] + 1), and I know why it failed. For wsum[] = {2,7,10,14}, it generates a random value in range [0, 14], totally 15 numbers. If the random number is 0, 1, 2, our code will return index 0, so the probability for selecting the first one is 3/15.
-       
+
        // this is the implementation of a left searching binary search
        int lo = 0, hi = this.nums.length - 1;
        while (lo < hi) {
            int mid = lo + (hi - lo) / 2;
-           
+
            // pulled the exact value of an index
            if (this.nums[mid] == n)
                return mid;
@@ -4605,7 +4605,7 @@ class Solution {
 }
 ```
 
-##[543. Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/description/)
+## [543. Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/description/)
 
 ```
 Given the root of a binary tree, return the length of the diameter of the tree.
@@ -4614,7 +4614,7 @@ The diameter of a binary tree is the length of the longest path between any two 
 
 The length of a path between two nodes is represented by the number of edges between them.
 
- 
+
 
 Example 1:
 
@@ -4627,7 +4627,7 @@ Example 2:
 Input: root = [1,2]
 Output: 1
 
- 
+
 
 Constraints:
 
@@ -4655,20 +4655,20 @@ public class Solution {
         int left = helper(root.left);
         int right = helper(root.right);
         diameter = Math.max(diameter, left + right);
-        
+
         return Math.max(left, right) + 1;
     }
 }
 ```
 
-##[560. Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)
+## [560. Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)
 
 ```
 Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.
 
 A subarray is a contiguous non-empty sequence of elements within an array.
 
- 
+
 
 Example 1:
 
@@ -4680,7 +4680,7 @@ Example 2:
 Input: nums = [1,2,3], k = 3
 Output: 2
 
- 
+
 
 Constraints:
 
@@ -4696,7 +4696,7 @@ public class Solution {
         int count = 0, sum = 0;
         HashMap < Integer, Integer > map = new HashMap < > ();
         map.put(0, 1);
-      
+
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
             if (map.containsKey(sum - k))
@@ -4708,7 +4708,7 @@ public class Solution {
 }
 ```
 
-##[658. Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)
+## [658. Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)
 ```
 Given a sorted integer array arr, two integers k and x, return the k closest integers to x in the array. The result should also be sorted in ascending order.
 
@@ -4717,7 +4717,7 @@ An integer a is closer to x than an integer b if:
     |a - x| < |b - x|, or
     |a - x| == |b - x| and a < b
 
- 
+
 
 Example 1:
 
@@ -4731,7 +4731,7 @@ Input: arr = [1,1,2,3,4,5], k = 4, x = -1
 
 Output: [1,1,2,3]
 
- 
+
 
 Constraints:
 
@@ -4766,12 +4766,12 @@ class Solution {
 }
 ```
 
-##[680. Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/description/)
+## [680. Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/description/)
 
 ```
 Given a string s, return true if the s can be palindrome after deleting at most one character from it.
 
- 
+
 
 Example 1:
 
@@ -4789,7 +4789,7 @@ Example 3:
 Input: s = "abc"
 Output: false
 
- 
+
 
 Constraints:
 
@@ -4804,7 +4804,7 @@ class Solution {
     public boolean validPalindrome(String s) {
         int i = 0;
         int j = s.length() - 1;
-        
+
         while(i <= j){
             if(s.charAt(i) == s.charAt(j)){
                 i++;
@@ -4828,7 +4828,7 @@ class Solution {
 }
 ```
 
-##[721. Accounts Merge](https://leetcode.com/problems/accounts-merge/description/)
+## [721. Accounts Merge](https://leetcode.com/problems/accounts-merge/description/)
 
 ```
 Given a list of accounts where each element accounts[i] is a list of strings, where the first element accounts[i][0] is a name, and the rest of the elements are emails representing emails of the account.
@@ -4837,7 +4837,7 @@ Now, we would like to merge these accounts. Two accounts definitely belong to th
 
 After merging the accounts, return the accounts in the following format: the first element of each account is the name, and the rest of the elements are emails in sorted order. The accounts themselves can be returned in any order.
 
- 
+
 
 Example 1:
 
@@ -4846,7 +4846,7 @@ Output: [["John","john00@mail.com","john_newyork@mail.com","johnsmith@mail.com"]
 Explanation:
 The first and second John's are the same person as they have the common email "johnsmith@mail.com".
 The third John and Mary are different people as none of their email addresses are used by other accounts.
-We could return these lists in any order, for example the answer [['Mary', 'mary@mail.com'], ['John', 'johnnybravo@mail.com'], 
+We could return these lists in any order, for example the answer [['Mary', 'mary@mail.com'], ['John', 'johnnybravo@mail.com'],
 ['John', 'john00@mail.com', 'john_newyork@mail.com', 'johnsmith@mail.com']] would still be accepted.
 
 Example 2:
@@ -4854,7 +4854,7 @@ Example 2:
 Input: accounts = [["Gabe","Gabe0@m.co","Gabe3@m.co","Gabe1@m.co"],["Kevin","Kevin3@m.co","Kevin5@m.co","Kevin0@m.co"],["Ethan","Ethan5@m.co","Ethan4@m.co","Ethan0@m.co"],["Hanzo","Hanzo3@m.co","Hanzo1@m.co","Hanzo0@m.co"],["Fern","Fern5@m.co","Fern1@m.co","Fern0@m.co"]]
 Output: [["Ethan","Ethan0@m.co","Ethan4@m.co","Ethan5@m.co"],["Gabe","Gabe0@m.co","Gabe1@m.co","Gabe3@m.co"],["Hanzo","Hanzo0@m.co","Hanzo1@m.co","Hanzo3@m.co"],["Kevin","Kevin0@m.co","Kevin3@m.co","Kevin5@m.co"],["Fern","Fern0@m.co","Fern1@m.co","Fern5@m.co"]]
 
- 
+
 
 Constraints:
 
@@ -4872,13 +4872,13 @@ class Solution {
      public List<List<String>> accountsMerge(List<List<String>> accounts) {
         Map<String, Set<String>> graph = new HashMap<>();  //<email node, neighbor nodes>
         Map<String, String> owner = new HashMap<>();        //<email, username>
-        
+
          // Build the graph;
         for (List<String> account : accounts) {
             String userName = account.get(0);
             Set<String> neighbors = new HashSet<>(account);
             neighbors.remove(userName);
-            
+
             for (int i = 1; i < account.size(); i++) {
                 String email = account.get(i);
                 if (!graph.containsKey(email)) {
@@ -4888,7 +4888,7 @@ class Solution {
                 owner.put(email, userName);
             }
         }
-        
+
         Set<String> visited = new HashSet<>();
         List<List<String>> results = new ArrayList<>();
         // DFS search the graph;
@@ -4901,29 +4901,29 @@ class Solution {
                 results.add(result);
              }
          }
-        
-        
+
+
         return results;
     }
-    
+
     public void dfs(Map<String, Set<String>> graph, String email, Set<String> visited, List<String> list) {
         list.add(email);
         visited.add(email);
         for (String neighbor: graph.get(email)) {
             if (!visited.contains(neighbor)) {
-                dfs(graph, neighbor, visited, list);    
+                dfs(graph, neighbor, visited, list);
             }
         }
     }
 }
 ```
 
-##[739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures/description/)
+## [739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures/description/)
 
 ```
 Given an array of integers temperatures represents the daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day for which this is possible, keep answer[i] == 0 instead.
 
- 
+
 
 Example 1:
 
@@ -4940,7 +4940,7 @@ Example 3:
 Input: temperatures = [30,60,90]
 Output: [1,1,0]
 
- 
+
 
 Constraints:
 
@@ -4967,7 +4967,7 @@ class Solution {
 }
 ```
 
-##[791. Custom Sort String](https://leetcode.com/problems/custom-sort-string/description/)
+## [791. Custom Sort String](https://leetcode.com/problems/custom-sort-string/description/)
 
 ```
 You are given two strings order and s. All the characters of order are unique and were sorted in some custom order previously.
@@ -4976,7 +4976,7 @@ Permute the characters of s so that they match the order that order was sorted. 
 
 Return any permutation of s that satisfies this property.
 
- 
+
 
 Example 1:
 
@@ -4998,7 +4998,7 @@ Explanation: The characters "b", "c", and "a" from order dictate the order for t
 
 Following the order of appearance in order, "b", "c", and "a" from s should be arranged as "b", "c", "a". "d" can be placed at any position since it's not in order. The output "bcad" correctly follows this rule. Other arrangements like "dbca" or "bcda" would also be valid, as long as "b", "c", "a" maintain their order.
 
- 
+
 
 Constraints:
 
@@ -5036,1205 +5036,479 @@ class Solution {
 }
 ```
 
-##[1004. Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/)
+## [827. Making A Large Island](https://leetcode.com/problems/making-a-large-island/)
 
 ```
-Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
+You are given an n x n binary matrix grid. You are allowed to change at most one 0 to be 1.
 
- 
+Return the size of the largest island in grid after applying this operation.
+
+An island is a 4-directionally connected group of 1s.
+
+
 
 Example 1:
 
-Input: nums = [1,1,1,0,0,0,1,1,1,1,0], k = 2
-Output: 6
-Explanation: [1,1,1,0,0,1,1,1,1,1,1]
-Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
+Input: grid = [[1,0],[0,1]]
+Output: 3
+Explanation: Change one 0 to 1 and connect two 1s, then we get an island with area = 3.
 
 Example 2:
 
-Input: nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], k = 3
-Output: 10
-Explanation: [0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1]
-Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
-
- 
-
-Constraints:
-
-    1 <= nums.length <= 105
-    nums[i] is either 0 or 1.
-    0 <= k <= nums.length
-
-
-```
-
-```
-Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
-
- 
-
-Example 1:
-
-Input: nums = [1,1,1,0,0,0,1,1,1,1,0], k = 2
-Output: 6
-Explanation: [1,1,1,0,0,1,1,1,1,1,1]
-Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
-
-Example 2:
-
-Input: nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], k = 3
-Output: 10
-Explanation: [0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1]
-Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
-
- 
-
-Constraints:
-
-    1 <= nums.length <= 105
-    nums[i] is either 0 or 1.
-    0 <= k <= nums.length
-
-```
-
-##[1047. Remove All Adjacent Duplicates In String](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/)
-
-```
-You are given a string s consisting of lowercase English letters. A duplicate removal consists of choosing two adjacent and equal letters and removing them.
-
-We repeatedly make duplicate removals on s until we no longer can.
-
-Return the final string after all such duplicate removals have been made. It can be proven that the answer is unique.
-
- 
-
-Example 1:
-
-Input: s = "abbaca"
-Output: "ca"
-Explanation: 
-For example, in "abbaca" we could remove "bb" since the letters are adjacent and equal, and this is the only possible move.  The result of this move is that the string is "aaca", of which only "aa" is possible, so the final string is "ca".
-
-Example 2:
-
-Input: s = "azxxzy"
-Output: "ay"
-
- 
-
-Constraints:
-
-    1 <= s.length <= 105
-    s consists of lowercase English letters.
-
-
-```
-
-```
-class Solution {
-    public String removeDuplicates(String s) {
-        Stack<Character> st = new Stack<>();
-        for(int i = 0; i < s.length() ;i++){
-            if(!st.isEmpty()){
-                if(st.peek() == s.charAt(i)){
-                    st.pop();
-                }else{
-                    st.push(s.charAt(i));
-                }
-            }else{
-                st.push(s.charAt(i));
-            }
-        }
-        StringBuilder ns = new StringBuilder("");
-        while(!st.isEmpty()){
-            ns.append(st.pop());
-        }
-        return ns.reverse().toString();
-    }
-}
-```
-
-##[1060. Missing Element in Sorted Array](https://leetcode.ca/all/1060.html)
-
-```
-Given a sorted array A of unique numbers, find the K-th missing number starting from the leftmost number of the array.
-
- 
-
-Example 1:
-
-Input: A = [4,7,9,10], K = 1
-Output: 5
-Explanation: 
-The first missing number is 5.
-
-Example 2:
-
-Input: A = [4,7,9,10], K = 3
-Output: 8
-Explanation: 
-The missing numbers are [5,6,8,...], hence the third missing number is 8.
+Input: grid = [[1,1],[1,0]]
+Output: 4
+Explanation: Change the 0 to 1 and make the island bigger, only one island with area = 4.
 
 Example 3:
 
-Input: A = [1,2,4], K = 3
-Output: 6
-Explanation: 
-The missing numbers are [3,5,6,7,...], hence the third missing number is 6.
+Input: grid = [[1,1],[1,1]]
+Output: 4
+Explanation: Can't change any 0 to 1, only one island with area = 4.
 
- 
 
-Note:
 
-    1 <= A.length <= 50000
-    1 <= A[i] <= 1e7
-    1 <= K <= 1e8
+Constraints:
+
+    n == grid.length
+    n == grid[i].length
+    1 <= n <= 500
+    grid[i][j] is either 0 or 1.
 
 ```
 
 ```
 class Solution {
-    public int missingElement(int[] nums, int k) {
-        int n = nums.length;
-        if (k > missing(nums, n - 1)) {
-            return nums[n - 1] + k - missing(nums, n - 1);
-        }
-        int l = 0, r = n - 1;
-        while (l < r) {
-            int mid = (l + r) >> 1;
-            if (missing(nums, mid) >= k) {
-                r = mid;
-            } else {
-                l = mid + 1;
+    public int largestIsland(int[][] grid) {
+        Map<Integer, Integer> regionsArea = new HashMap<>();
+        regionsArea.put(0,0);
+
+        int n = grid.length;
+        int region = 2;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(grid[i][j]==1){
+                    int area = floodFill(grid, i, j, region);
+                    regionsArea.put(region, area);
+                    region++;
+                }
             }
         }
-        return nums[l - 1] + k - missing(nums, l - 1);
+
+        int max = regionsArea.getOrDefault(2,0);
+        for(int r=0;r<n;r++){
+            for(int c=0;c<n;c++){
+                if(grid[r][c]==0){
+                    Set<Integer> neighbors = new HashSet<>();
+                    neighbors.add(r>0?grid[r-1][c]:0);
+                    neighbors.add(c>0?grid[r][c-1]:0);
+                    neighbors.add(r<n-1?grid[r+1][c]:0);
+                    neighbors.add(c<n-1?grid[r][c+1]:0);
+                    int area = 1;
+                    for(int neighbor: neighbors){
+                        area+=regionsArea.get(neighbor);
+                    }
+                    if(area>max){
+                        max = area;
+                    }
+                }
+            }
+        }
+
+        return max;
     }
 
-    private int missing(int[] nums, int i) {
-        return nums[i] - nums[0] - i;
+    public int floodFill(int[][] grid, int r, int c, int region) {
+        int n = grid.length;
+        if(r<0||r>=n||c<0||c>=n||grid[r][c]!=1){
+            return 0;
+        }
+
+        grid[r][c] = region;
+
+        int sum = 1;
+        sum+=floodFill(grid, r, c+1, region);
+        sum+=floodFill(grid, r+1, c, region);
+        sum+=floodFill(grid, r, c-1, region);
+        sum+=floodFill(grid, r-1, c, region);
+
+        return sum;
     }
 }
 ```
 
-##[1091. Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/description/)
-
+## [934. Shortest Bridge](https://leetcode.com/problems/shortest-bridge/)
 ```
-Given an n x n binary matrix grid, return the length of the shortest clear path in the matrix. If there is no clear path, return -1.
+You are given an n x n binary matrix grid where 1 represents land and 0 represents water.
 
-A clear path in a binary matrix is a path from the top-left cell (i.e., (0, 0)) to the bottom-right cell (i.e., (n - 1, n - 1)) such that:
+An island is a 4-directionally connected group of 1's not connected to any other 1's. There are exactly two islands in grid.
 
-    All the visited cells of the path are 0.
-    All the adjacent cells of the path are 8-directionally connected (i.e., they are different and they share an edge or a corner).
+You may change 0's to 1's to connect the two islands to form one island.
 
-The length of a clear path is the number of visited cells of this path.
+Return the smallest number of 0's you must flip to connect the two islands.
 
- 
+
 
 Example 1:
 
 Input: grid = [[0,1],[1,0]]
-Output: 2
-
-Example 2:
-
-Input: grid = [[0,0,0],[1,1,0],[1,1,0]]
-Output: 4
-
-Example 3:
-
-Input: grid = [[1,0,0],[1,1,0],[1,1,0]]
-Output: -1
-
-```
-
-```
-    public int shortestPathBinaryMatrix(int[][] grid) {
-        if (grid == null || grid.length == 0 || grid[0].length == 0) {
-            return -1;
-        }
-
-        int ans = 0;
-
-        int row = grid.length;
-        int col = grid[0].length;
-
-        if (grid[0][0] == 1 || grid[row - 1][col - 1] == 1) {
-            return -1;
-        }
-
-        int[][] dirs = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
-
-        boolean[][] visited = new boolean[row][col];
-
-        Queue<int[]> queue = new LinkedList<>();
-        queue.offer(new int[]{0, 0});
-        visited[0][0] = true;
-
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            ans++;
-
-            for (int i = 0; i < size; i++) {
-                int[] curPos = queue.poll();
-
-                if (curPos[0] == row - 1 && curPos[1] == col - 1) {
-                    return ans;
-                }
-
-                for (int[] dir : dirs) {
-                    int nextX = curPos[0] + dir[0];
-                    int nextY = curPos[1] + dir[1];
-
-                    if (nextX < 0 || nextX >= row || nextY < 0 || nextY >= col || visited[nextX][nextY] || grid[nextX][nextY] == 1) {
-                        continue;
-                    }
-
-                    visited[nextX][nextY] = true;
-                    queue.offer(new int[]{nextX, nextY});
-                }
-            }
-        }
-
-        return -1;
-    }
-```
-
-##[1123. Lowest Common Ancestor of Deepest Leaves](https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/)
-
-```
-Given the root of a binary tree, return the lowest common ancestor of its deepest leaves.
-
-Recall that:
-
-    The node of a binary tree is a leaf if and only if it has no children
-    The depth of the root of the tree is 0. if the depth of a node is d, the depth of each of its children is d + 1.
-    The lowest common ancestor of a set S of nodes, is the node A with the largest depth such that every node in S is in the subtree with root A.
-
- 
-
-Example 1:
-
-Input: root = [3,5,1,6,2,0,8,null,null,7,4]
-Output: [2,7,4]
-Explanation: We return the node with value 2, colored in yellow in the diagram.
-The nodes coloured in blue are the deepest leaf-nodes of the tree.
-Note that nodes 6, 0, and 8 are also leaf nodes, but the depth of them is 2, but the depth of nodes 7 and 4 is 3.
-
-Example 2:
-
-Input: root = [1]
-Output: [1]
-Explanation: The root is the deepest node in the tree, and it's the lca of itself.
-
-Example 3:
-
-Input: root = [0,1,3,null,2]
-Output: [2]
-Explanation: The deepest leaf node in the tree is 2, the lca of one node is itself.
-
- 
-
-Constraints:
-
-    The number of nodes in the tree will be in the range [1, 1000].
-    0 <= Node.val <= 1000
-    The values of the nodes in the tree are unique.
-
-```
-
-```
-class Solution {
-    class Result {
-        int depth;
-        TreeNode lca;
-        Result(int depth, TreeNode lca) {
-            this.depth = depth;
-            this.lca = lca;
-        }
-    }
-
-    public TreeNode lcaDeepestLeaves(TreeNode root) {
-        return helper(root).lca;
-    }
-
-    private Result helper(TreeNode node) {
-        if (node == null) return new Result(0, null);
-
-        Result left = helper(node.left);
-        Result right = helper(node.right);
-
-        if (left.depth == right.depth) {
-            return new Result(left.depth + 1, node);
-        } else if (left.depth > right.depth) {
-            return new Result(left.depth + 1, left.lca);
-        } else {
-            return new Result(right.depth + 1, right.lca);
-        }
-    }
-}
-```
-
-##[1161. Maximum Level Sum of a Binary Tree](https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/)
-
-```
-Given the root of a binary tree, the level of its root is 1, the level of its children is 2, and so on.
-
-Return the smallest level x such that the sum of all the values of nodes at level x is maximal.
-
- 
-
-Example 1:
-
-Input: root = [1,7,0,7,-8,null,null]
-Output: 2
-Explanation: 
-Level 1 sum = 1.
-Level 2 sum = 7 + 0 = 7.
-Level 3 sum = 7 + -8 = -1.
-So we return the level with the maximum sum which is level 2.
-
-Example 2:
-
-Input: root = [989,null,10250,98693,-89388,null,null,null,-32127]
-Output: 2
-
- 
-
-Constraints:
-
-    The number of nodes in the tree is in the range [1, 104].
-    -105 <= Node.val <= 105
-
-```
-
-```
-    public int maxLevelSum(TreeNode root) {
-        int max = Integer.MIN_VALUE, maxLevel = 1;
-        Queue<TreeNode> q = new LinkedList<>();
-        q.offer(root);
-        for (int level = 1; !q.isEmpty(); ++level) {
-            int sum = 0;
-            for (int sz = q.size(); sz > 0; --sz) {
-                TreeNode n = q.poll();
-                sum += n.val;
-                if (n.left != null) { 
-                    q.offer(n.left);
-                }
-                if (n.right != null) {
-                    q.offer(n.right);
-                }
-            }
-            if (max < sum) {
-                max = sum;
-                maxLevel = level;
-            }
-        }
-        return maxLevel;
-    }
-```
-
-##[1209. Remove All Adjacent Duplicates in String II](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/)
-```
-You are given a string s and an integer k, a k duplicate removal consists of choosing k adjacent and equal letters from s and removing them, causing the left and the right side of the deleted substring to concatenate together.
-
-We repeatedly make k duplicate removals on s until we no longer can.
-
-Return the final string after all such duplicate removals have been made. It is guaranteed that the answer is unique.
-
- 
-
-Example 1:
-
-Input: s = "abcd", k = 2
-Output: "abcd"
-Explanation: There's nothing to delete.
-
-Example 2:
-
-Input: s = "deeedbbcccbdaa", k = 3
-Output: "aa"
-Explanation: 
-First delete "eee" and "ccc", get "ddbbbdaa"
-Then delete "bbb", get "dddaa"
-Finally delete "ddd", get "aa"
-
-Example 3:
-
-Input: s = "pbbcggttciiippooaais", k = 2
-Output: "ps"
-
- 
-
-Constraints:
-
-    1 <= s.length <= 105
-    2 <= k <= 104
-    s only contains lowercase English letters.
-
-
-```
-
-```
-class Solution {
-    public String removeDuplicates(String s, int k) {
-        Stack<CharCounter> stack = new Stack<>();
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (!stack.isEmpty() && c == stack.peek().c) {
-                if (stack.peek().count == k - 1) {
-                    stack.pop();
-                } else {
-                    stack.peek().count++;
-                }
-            } else {
-                stack.push(new CharCounter(c));
-            }
-        }
-        StringBuilder res = new StringBuilder();
-        for (CharCounter charCount : stack) {
-            res.append(charCount);
-        }
-        return res.toString();
-    }
-}
-
-
-class CharCounter {
-    char c;
-    int count;
-    
-    CharCounter(char c) {
-        this.c = c;
-        this.count = 1;
-    }
-    
-    @Override
-    public String toString() {
-        return Character.toString(c).repeat(count);
-    }
-}
-```
-
-##[1216. Valid Palindrome III](https://leetcode.ca/all/1216.html)
-
-```
-Given a string s and an integer k, find out if the given string is a K-Palindrome or not.
-
-A string is K-Palindrome if it can be transformed into a palindrome by removing at most k characters from it.
-
- 
-
-Example 1:
-
-Input: s = "abcdeca", k = 2
-Output: true
-Explanation: Remove 'b' and 'e' characters.
-
- 
-
-Constraints:
-
-    1 <= s.length <= 1000
-    s has only lowercase English letters.
-    1 <= k <= s.length
-
-
-```
-
-```
-class Solution {
-    public boolean isValidPalindrome(String s, int k) {
-        int n = s.length();
-        int[][] f = new int[n][n];
-        for (int i = 0; i < n; ++i) {
-            f[i][i] = 1;
-        }
-        for (int i = n - 2; i >= 0; --i) {
-            for (int j = i + 1; j < n; ++j) {
-                if (s.charAt(i) == s.charAt(j)) {
-                    f[i][j] = f[i + 1][j - 1] + 2;
-                } else {
-                    f[i][j] = Math.max(f[i + 1][j], f[i][j - 1]);
-                }
-                if (f[i][j] + k >= n) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-}
-```
-
-##[1249. Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/)
-
-```
-Given a string s of '(' , ')' and lowercase English characters.
-
-Your task is to remove the minimum number of parentheses ( '(' or ')', in any positions ) so that the resulting parentheses string is valid and return any valid string.
-
-Formally, a parentheses string is valid if and only if:
-
-    It is the empty string, contains only lowercase characters, or
-    It can be written as AB (A concatenated with B), where A and B are valid strings, or
-    It can be written as (A), where A is a valid string.
-
- 
-
-Example 1:
-
-Input: s = "lee(t(c)o)de)"
-Output: "lee(t(c)o)de"
-Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
-
-Example 2:
-
-Input: s = "a)b(c)d"
-Output: "ab(c)d"
-
-Example 3:
-
-Input: s = "))(("
-Output: ""
-Explanation: An empty string is also valid.
-
- 
-
-Constraints:
-
-    1 <= s.length <= 105
-    s[i] is either '(' , ')', or lowercase English letter.
-
-```
-
-```
-class Solution {
-    public String minRemoveToMakeValid(String s) {
-        // Initialize counts for left and right parentheses
-        int leftCount = 0;
-        int rightCount = 0;
-
-        // Use a stack to keep track of valid parentheses
-        Stack<Character> stack = new Stack<>();
-
-        // Pass 1: Iterate through the string and process parentheses
-        for (int i = 0; i < s.length(); i++) {
-            char currentChar = s.charAt(i);
-
-            // Increment count for left parentheses
-            if (currentChar == '(') {
-                leftCount++;
-            }
-            // Increment count for right parentheses
-            if (currentChar == ')') {
-                rightCount++;
-            }
-
-            // If there are more right parentheses than left, skip the current right parenthesis
-            if (rightCount > leftCount) {
-                rightCount--; // Decrease right count
-                continue;     // Skip processing this right parenthesis
-            } else {
-                stack.push(currentChar); // Add valid parentheses to the stack
-            }
-        }
-
-        // Pass 2: Reconstruct the string using the valid parentheses in the stack
-        StringBuilder result = new StringBuilder();
-        while (!stack.isEmpty()) {
-            char currentChar = stack.pop();
-            // If there are more left parentheses than right, skip the current left parenthesis
-            if (leftCount > rightCount && currentChar == '(') {
-                leftCount--; // Decrease left count
-                // Do nothing, skip this left parenthesis
-            } else {
-                result.append(currentChar); // Add valid parentheses to the result
-            }
-        }
-
-        // Reverse the result string and return
-        return result.reverse().toString();
-    }
-}
-```
-
-##[1382. Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree/)
-
-```
-Given the root of a binary search tree, return a balanced binary search tree with the same node values. If there is more than one answer, return any of them.
-
-A binary search tree is balanced if the depth of the two subtrees of every node never differs by more than 1.
-
- 
-
-Example 1:
-
-Input: root = [1,null,2,null,3,null,4,null,null]
-Output: [2,1,3,null,null,null,4]
-Explanation: This is not the only correct answer, [3,1,4,null,2] is also correct.
-
-Example 2:
-
-Input: root = [2,1,3]
-Output: [2,1,3]
-
- 
-
-Constraints:
-
-    The number of nodes in the tree is in the range [1, 104].
-    1 <= Node.val <= 105
-
-
-```
-
-```
-class Solution {
-    public TreeNode balanceBST(TreeNode root) {
-        List<Integer> sortedElements = new ArrayList<>();
-        inOrderTraversal(root, sortedElements);
-        return buildBalancedBST(sortedElements, 0, sortedElements.size() - 1);
-    }
-    
-    private void inOrderTraversal(TreeNode node, List<Integer> sortedElements) {
-        if (node == null) {
-            return;
-        }
-        inOrderTraversal(node.left, sortedElements);
-        sortedElements.add(node.val);
-        inOrderTraversal(node.right, sortedElements);
-    }
-    
-    private TreeNode buildBalancedBST(List<Integer> elements, int start, int end) {
-        if (start > end) {
-            return null;
-        }
-        int mid = start + (end - start) / 2;
-        TreeNode node = new TreeNode(elements.get(mid));
-        node.left = buildBalancedBST(elements, start, mid - 1);
-        node.right = buildBalancedBST(elements, mid + 1, end);
-        return node;
-    }
-}
-```
-
-##[1539. Kth Missing Positive Number](https://leetcode.com/problems/kth-missing-positive-number/description/)
-
-```
-Given an array arr of positive integers sorted in a strictly increasing order, and an integer k.
-
-Return the kth positive integer that is missing from this array.
-
- 
-
-Example 1:
-
-Input: arr = [2,3,4,7,11], k = 5
-Output: 9
-Explanation: The missing positive integers are [1,5,6,8,9,10,12,13,...]. The 5th missing positive integer is 9.
-
-Example 2:
-
-Input: arr = [1,2,3,4], k = 2
-Output: 6
-Explanation: The missing positive integers are [5,6,7,...]. The 2nd missing positive integer is 6.
-
- 
-
-Constraints:
-
-    1 <= arr.length <= 1000
-    1 <= arr[i] <= 1000
-    1 <= k <= 1000
-    arr[i] < arr[j] for 1 <= i < j <= arr.length
-
-```
-
-```
-class Solution {
-    public int findKthPositive(int[] arr, int k) {
-        int left = 0, right = arr.length - 1;
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (arr[mid] - mid - 1 < k) {
-                left = mid + 1;
-            } else {
-                right = mid - 1;
-            }
-        }
-        return left + k;
-    }
-}
-```
-
-##[1570. Dot Product of Two Sparse Vectors](https://leetcode.ca/all/1570.html)
-
-```
-
-
-Given two sparse vectors, compute their dot product.
-
-Implement class SparseVector:
-
-    SparseVector(nums) Initializes the object with the vector nums
-    dotProduct(vec) Compute the dot product between the instance of SparseVector and vec
-
-A sparse vector is a vector that has mostly zero values, you should store the sparse vector efficiently and compute the dot product between two SparseVector.
-
-Follow up: What if only one of the vectors is sparse?
-
- 
-
-Example 1:
-
-Input: nums1 = [1,0,0,2,3], nums2 = [0,3,0,4,0]
-Output: 8
-Explanation: v1 = SparseVector(nums1) , v2 = SparseVector(nums2)
-v1.dotProduct(v2) = 1*0 + 0*3 + 0*0 + 2*4 + 3*0 = 8
-
-Example 2:
-
-Input: nums1 = [0,1,0,0,0], nums2 = [0,0,0,0,2]
-Output: 0
-Explanation: v1 = SparseVector(nums1) , v2 = SparseVector(nums2)
-v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
-
-Example 3:
-
-Input: nums1 = [0,1,0,0,2,0,0], nums2 = [1,0,0,0,3,0,4]
-Output: 6
-
- 
-
-Constraints:
-
-    n == nums1.length == nums2.length
-    1 <= n <= 10^5
-    0 <= nums1[i], nums2[i] <= 100
-
-
-```
-
-```
-class SparseVector {
-    public Map<Integer, Integer> d = new HashMap<>(128);
-
-    SparseVector(int[] nums) {
-        for (int i = 0; i < nums.length; ++i) {
-            if (nums[i] != 0) {
-                d.put(i, nums[i]);
-            }
-        }
-    }
-
-    // Return the dotProduct of two sparse vectors
-    public int dotProduct(SparseVector vec) {
-        var a = d;
-        var b = vec.d;
-        if (b.size() < a.size()) {
-            var t = a;
-            a = b;
-            b = t;
-        }
-        int ans = 0;
-        for (var e : a.entrySet()) {
-            int i = e.getKey(), v = e.getValue();
-            ans += v * b.getOrDefault(i, 0);
-        }
-        return ans;
-    }
-}
-```
-
-##[1644. Lowest Common Ancestor of a Binary Tree II](https://leetcode.ca/all/1644.html)
-
-```
-Given the root of a binary tree, return the lowest common ancestor (LCA) of two given nodes, p and q. If either node p or q does not exist in the tree, return null. All values of the nodes in the tree are unique.
-
-According to the definition of LCA on Wikipedia: "The lowest common ancestor of two nodes p and q in a binary tree T is the lowest node that has both p and q as descendants (where we allow a node to be a descendant of itself)". A descendant of a node x is a node y that is on the path from node x to some leaf node.
-
- 
-
-Example 1:
-
-Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
-Output: 3
-Explanation: The LCA of nodes 5 and 1 is 3.
-
-Example 2:
-
-Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
-Output: 5
-Explanation: The LCA of nodes 5 and 4 is 5. A node can be a descendant of itself according to the definition of LCA.
-
-Example 3:
-
-Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 10
-Output: null
-Explanation: Node 10 does not exist in the tree, so return null.
-
- 
-
-Constraints:
-
-    The number of nodes in the tree is in the range [1, 104].
-    -109 <= Node.val <= 109
-    All Node.val are unique.
-    p != q
-
- 
-Follow up: Can you find the LCA traversing the tree, without checking nodes existence?
-```
-
-```
-class Solution {
-    public TreeNode ancestor = null;
-    public TreeNode p = null, q = null;
-
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        findNodes(root, p, q);
-        if (p == null || q == null)
-            return null;
-        depthFirstSearch(root, p, q);
-        return ancestor;
-    }
-
-    public void findNodes(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null)
-            return;
-        if (root == p)
-            this.p = p;
-        else if (root == q)
-            this.q = q;
-        findNodes(root.left, p, q);
-        findNodes(root.right, p, q);
-    }
-
-    public boolean depthFirstSearch(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null)
-            return false;
-        boolean left = depthFirstSearch(root.left, p, q);
-        boolean right = depthFirstSearch(root.right, p, q);
-        if (left && right || ((root.val == p.val || root.val == q.val) && (left || right)))
-            ancestor = root;
-        return left || right || (root.val == p.val || root.val == q.val);
-    }
-}
-
-
-public class Solution_followup {
-
-    // 计数找到了p和q的多少个节点
-    private int count = 0;
-
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        TreeNode res = lca(root, p, q);
-        // 如果都找到了，就可以返回res了，否则说明某个节点不存在，返回null
-        return count == 2 ? res : null;
-    }
-
-    // 功能是返回p与q都存在的情况下的lca
-    private TreeNode lca(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null) {
-            return null;
-        }
-
-        // 在左右两边找p和q
-        TreeNode left = lca(root.left, p, q), right = lca(root.right, p, q);
-
-        // 如果当前树根就是p或q，那计数加1，并且root就是lca（在p和q都存在于树的情况下）
-        if (root == p || root == q) {
-            count++;
-            return root;
-        }
-
-        // 如果左子树里找不到p和q，那lca就在右边，如果右子树找不到p和q那lca就在左边，
-        // 否则就是左右都找到了，返回当前树根
-        if (left == null) {
-            return right;
-        } else if (right == null) {
-            return left;
-        } else {
-            return root;
-        }
-    }
-}
-```
-
-##[1650. Lowest Common Ancestor of a Binary Tree III](https://leetcode.ca/all/1650.html)
-
-```
-
-
-Given two nodes of a binary tree p and q, return their lowest common ancestor (LCA).
-
-Each node will have a reference to its parent node. The definition for Node is below:
-
-class Node {
-    public int val;
-    public Node left;
-    public Node right;
-    public Node parent;
-}
-
-According to the definition of LCA on Wikipedia: "The lowest common ancestor of two nodes p and q in a tree T is the lowest node that has both p and q as descendants (where we allow a node to be a descendant of itself)."
-
- 
-
-Example 1:
-
-Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
-Output: 3
-Explanation: The LCA of nodes 5 and 1 is 3.
-
-Example 2:
-
-Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
-Output: 5
-Explanation: The LCA of nodes 5 and 4 is 5 since a node can be a descendant of itself according to the LCA definition.
-
-Example 3:
-
-Input: root = [1,2], p = 1, q = 2
 Output: 1
 
- 
-
-Constraints:
-
-    The number of nodes in the tree is in the range [2, 105].
-    -109 <= Node.val <= 109
-    All Node.val are unique.
-    p != q
-    p and q exist in the tree.
-
-
-```
-
-```
-
-class Solution {
-    public Node lowestCommonAncestor(Node p, Node q) {
-        Set<Node> set = new HashSet<Node>();
-        Node temp = p;
-        while (temp != null) {
-            set.add(temp);
-            temp = temp.parent;
-        }
-        temp = q;
-        while (temp != null) {
-            if (set.contains(temp))
-                break;
-            else
-                temp = temp.parent;
-        }
-        return temp;
-    }
-}
-```
-
-##[1762. Buildings With an Ocean View](https://leetcode.ca/all/1762.html)
-
-```
-There are n buildings in a line. You are given an integer array heights of size n that represents the heights of the buildings in the line.
-
-The ocean is to the right of the buildings. A building has an ocean view if the building can see the ocean without obstructions. Formally, a building has an ocean view if all the buildings to its right have a smaller height.
-
-Return a list of indices (0-indexed) of buildings that have an ocean view, sorted in increasing order.
-
- 
-
-Example 1:
-
-Input: heights = [4,2,3,1]
-Output: [0,2,3]
-Explanation: Building 1 (0-indexed) does not have an ocean view because building 2 is taller.
-
 Example 2:
 
-Input: heights = [4,3,2,1]
-Output: [0,1,2,3]
-Explanation: All the buildings have an ocean view.
+Input: grid = [[0,1,0],[0,0,0],[0,0,1]]
+Output: 2
 
 Example 3:
 
-Input: heights = [1,3,2,4]
-Output: [3]
-Explanation: Only building 3 has an ocean view.
+Input: grid = [[1,1,1,1,1],[1,0,0,0,1],[1,0,1,0,1],[1,0,0,0,1],[1,1,1,1,1]]
+Output: 1
 
-Example 4:
 
-Input: heights = [2,2,2,2]
-Output: [3]
-Explanation: Buildings cannot see the ocean if there are buildings of the same height to its right.
-
- 
 
 Constraints:
 
-    1 <= heights.length <= 105
-    1 <= heights[i] <= 109
+    n == grid.length == grid[i].length
+    2 <= n <= 100
+    grid[i][j] is either 0 or 1.
+    There are exactly two islands in grid.
 
 
 ```
 
 ```
+
 class Solution {
-    public int[] findBuildings(int[] heights) {
-        int mx = 0;
-        LinkedList<Integer> ans = new LinkedList<>();
-        for (int i = heights.length - 1; i >= 0; --i) {
-            int v = heights[i];
-            if (mx < v) {
-                ans.addFirst(i);
-                mx = v;
+    private int[][] directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+
+    public int shortestBridge(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+
+        int startI = -1;
+        int startJ = -1;
+        boolean found = false;
+
+        // Step 1: Find the first island using DFS
+        for (int i = 0; i < m; i++) {
+            if (found) {
+                break;
+            }
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) {
+                    startI = i;
+                    startJ = j;
+                    found = true;
+                    break;
+                }
             }
         }
-        return ans.stream().mapToInt(i -> i).toArray();
-    }
-}
-```
 
-##[1778. Shortest Path in a Hidden Grid](https://leetcode.ca/all/1778.html)
+        Set<Integer> visited = new HashSet<>();
+        dfs(grid, startI, startJ, visited);
 
-```
-This is an interactive problem.
+        // Step 2: Perform BFS from the first island to find the shortest bridge
+        Queue<Integer> queue = new ArrayDeque<>(visited);
+        int level = 0;
 
-You are given a robot in a hidden grid, and it wants to go to a target cell in this grid. The grid is of size m x n, and each cell in the grid can be empty or blocked. It is guaranteed that the start point and the robot's destination are different, and neither of them is blocked.
-
-You want to find the robot's minimum distance to the target cell. However, you do not know the grid's dimensions, or the starting point of the robot, or its target destination. You are only allowed to ask queries to your GridMaster object.
-
-You are given a class GridMaster which you can call the following functions from:
-
-    boolean GridMaster.canMove(char direction) returns true if the robot can move in that direction. Otherwise, it returns false.
-    void GridMaster.move(char direction) moves the robot in that direction. If this move would move the robot to a blocked cell or off the grid, it will be ignored, and the robot would remain in the same position.
-    boolean GridMaster.isTarget() returns true if the robot is currently on the target cell. Otherwise, it returns false.
-
-Note that direction in the above functions should be a character from {'U','D','L','R'}, representing the directions up, down, left, and right, respectively.
-
-Return the minimum distance between the robot's initial starting cell and the target cell if there is a path between them. Otherwise, return -1.
-
-Custom testing:
-
-The test input is read as a 2D matrix grid of size m x n where:
-
-    grid[i][j] == -1 indicates that the robot is in cell (i, j).
-    grid[i][j] == 0 indicates that the cell (i, j) is blocked.
-    grid[i][j] == 1 indicates that the cell (i, j) is empty.
-    grid[i][j] == 2 indicates that the cell (i, j) is the target cell.
-
-There is exactly one -1 and 2 in grid. Remember that you will not have this information in your code.
-
- 
-
-Example 1:
-
-Input: grid = [[1,2],[-1,0]]
-Output: 2
-Explanation: One possible interaction is described below:
-The robot is initially standing on cell (1, 0), denoted by the -1.
-- master.canMove('U') returns True.
-- master.canMove('D') returns False.
-- master.canMove('L') returns False.
-- master.canMove('R') returns False.
-- master.move('U') moves the robot to the cell (0, 0).
-- master.isTarget() returns False.
-- master.canMove('U') returns False.
-- master.canMove('D') returns True.
-- master.canMove('L') returns False.
-- master.canMove('R') returns True.
-- master.move('R') moves the robot to the cell (0, 1).
-- master.isTarget() returns True.
-We now know that the target is the cell (0, 1), and the shortest path to the target is 2.
-
-Example 2:
-
-Input: grid = [[0,0,-1],[1,1,1],[2,0,0]]
-Output: 4
-Explanation: The minimum distance between the robot and the target is 4.
-
-Example 3:
-
-Input: grid = [[-1,0],[0,2]]
-Output: -1
-Explanation: There is no path from the robot to the target cell.
-
- 
-
-Constraints:
-
-    m == grid.length
-    n == grid[i].length
-    1 <= n, m <= 500
-    grid[i][j] is either -1, 0, 1, or 2.
-    There is exactly one -1 in grid.
-    There is exactly one 2 in grid.
-
-
-```
-
-```
-
-class Solution {
-    static final int MAX = 500;
-    char[] directionsChar = {'U', 'L', 'D', 'R'};
-    int[][] directionsArr = { {-1, 0}, {0, -1}, {1, 0}, {0, 1} };
-    boolean flag = false;
-
-    public int findShortestPath(GridMaster master) {
-        Set<String> visited1 = new HashSet<String>();
-        int[][] grid = new int[MAX * 2][MAX * 2];
-        grid[MAX][MAX] = -1;
-        depthFirstSearch(MAX, MAX, visited1, grid, master);
-        if (!flag)
-            return -1;
-        int distance = 0;
-        boolean[][] visited2 = new boolean[MAX * 2][MAX * 2];
-        visited2[MAX][MAX] = true;
-        Queue<int[]> queue = new LinkedList<int[]>();
-        queue.offer(new int[]{MAX, MAX});
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
-                int[] cell = queue.poll();
-                int row = cell[0], column = cell[1];
-                if (grid[row][column] == 2)
-                    return distance;
-                for (int[] directionArr : directionsArr) {
-                    int newRow = row + directionArr[0], newColumn = column + directionArr[1];
-                    if (!visited2[newRow][newColumn] && grid[newRow][newColumn] != 0) {
-                        visited2[newRow][newColumn] = true;
-                        queue.offer(new int[]{newRow, newColumn});
+                int curr = queue.poll();
+                int currI = curr / n;
+                int currJ = curr % n;
+
+                for (int[] dir : directions) {
+                    int ni = currI + dir[0];
+                    int nj = currJ + dir[1];
+                    int neighbor = ni * n + nj;
+
+                    if (ni >= 0 && ni < m && nj >= 0 && nj < n && !visited.contains(neighbor)) {
+                        if (grid[ni][nj] == 1) {
+                            return level;
+                        }
+                        queue.offer(neighbor);
+                        visited.add(neighbor);
                     }
                 }
             }
-            distance++;
+            level++;
         }
-        return -1;
+
+        return -1; // No bridge found
     }
 
-    public void depthFirstSearch(int row, int column, Set<String> visited, int[][] grid, GridMaster master) {
-        grid[row][column] = 1;
-        if (master.isTarget()) {
-            grid[row][column] = 2;
-            flag = true;
+    private void dfs(int[][] grid, int i, int j, Set<Integer> visited) {
+        int m = grid.length;
+        int n = grid[0].length;
+        int curr = i * n + j;
+
+        if (i < 0 || i >= m || j < 0 || j >= n || grid[i][j] != 1 || visited.contains(curr)) {
+            return;
         }
-        for (int i = 0; i < 4; i++) {
-            char directionChar = directionsChar[i];
-            char oppositeDirectionChar = directionsChar[(i + 2) % 4];
-            int[] directionArr = directionsArr[i];
-            int newRow = row + directionArr[0], newColumn = column + directionArr[1];
-            String newStr = Arrays.toString(new int[]{newRow, newColumn});
-            if (!visited.contains(newStr) && master.canMove(directionChar)) {
-                visited.add(newStr);
-                master.move(directionChar);
-                depthFirstSearch(newRow, newColumn, visited, grid, master);
-                master.move(oppositeDirectionChar);
-            }
+
+        visited.add(curr);
+
+        for (int[] dir : directions) {
+            int ni = i + dir[0];
+            int nj = j + dir[1];
+            dfs(grid, ni, nj, visited);
         }
     }
 }
 ```
 
+## [938. Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/description/)
 
+```
+Given the root node of a binary search tree and two integers low and high, return the sum of values of all nodes with a value in the inclusive range [low, high].
+
+
+
+Example 1:
+
+Input: root = [10,5,15,3,7,null,18], low = 7, high = 15
+Output: 32
+Explanation: Nodes 7, 10, and 15 are in the range [7, 15]. 7 + 10 + 15 = 32.
+
+Example 2:
+
+Input: root = [10,5,15,3,7,13,18,1,null,6], low = 6, high = 10
+Output: 23
+Explanation: Nodes 6, 7, and 10 are in the range [6, 10]. 6 + 7 + 10 = 23.
+
+
+
+Constraints:
+
+    The number of nodes in the tree is in the range [1, 2 * 104].
+    1 <= Node.val <= 105
+    1 <= low <= high <= 105
+    All Node.val are unique.
+```
+
+```
+    public int rangeSumBST(TreeNode root, int L, int R) {
+        if (root == null) return 0; // base case.
+        if (root.val < L) return rangeSumBST(root.right, L, R); // left branch excluded.
+        if (root.val > R) return rangeSumBST(root.left, L, R); // right branch excluded.
+        return root.val + rangeSumBST(root.right, L, R) + rangeSumBST(root.left, L, R); // count in both children.
+    }
+
+
+        public int rangeSumBST(TreeNode root, int L, int R) {
+        Stack<TreeNode> stk = new Stack<>();
+        stk.push(root);
+        int sum = 0;
+        while (!stk.isEmpty()) {
+            TreeNode n = stk.pop();
+            if (n == null) { continue; }
+            if (n.val > L) { stk.push(n.left); } // left child is a possible candidate.
+            if (n.val < R) { stk.push(n.right); } // right child is a possible candidate.
+            if (L <= n.val && n.val <= R) { sum += n.val; }
+        }
+        return sum;
+    }
+```
+
+## [973. K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/description/)
+
+```
+Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0).
+
+The distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x1 - x2)2 + (y1 - y2)2).
+
+You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).
+
+
+
+Example 1:
+
+Input: points = [[1,3],[-2,2]], k = 1
+Output: [[-2,2]]
+Explanation:
+The distance between (1, 3) and the origin is sqrt(10).
+The distance between (-2, 2) and the origin is sqrt(8).
+Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
+We only want the closest k = 1 points from the origin, so the answer is just [[-2,2]].
+
+Example 2:
+
+Input: points = [[3,3],[5,-1],[-2,4]], k = 2
+Output: [[3,3],[-2,4]]
+Explanation: The answer [[-2,4],[3,3]] would also be accepted.
+
+
+
+Constraints:
+
+    1 <= k <= points.length <= 104
+    -104 <= xi, yi <= 104
+
+
+```
+
+```
+public int[][] kClosest(int[][] points, int k) {
+        // We can use a PQ to store K points that are closest to origin
+        Queue<int[]> pq = new PriorityQueue<>(k, (a, b) -> Integer.compare(dist(a), dist(b)));
+        for (int[] p : points) {
+            pq.add(p);
+        }
+        int[][] res = new int[k][2];
+        while (!pq.isEmpty() && k > 0) {
+            res[--k] = pq.remove();
+        }
+        return res;
+    }
+
+    private int dist(int[] point) {
+        return (point[0] * point[0]) + (point[1] * point[1]);
+    }
+```
+
+## [986. Interval List Intersections](https://leetcode.com/problems/interval-list-intersections/description/)
+
+```
+You are given two lists of closed intervals, firstList and secondList, where firstList[i] = [starti, endi] and secondList[j] = [startj, endj]. Each list of intervals is pairwise disjoint and in sorted order.
+
+Return the intersection of these two interval lists.
+
+A closed interval [a, b] (with a <= b) denotes the set of real numbers x with a <= x <= b.
+
+The intersection of two closed intervals is a set of real numbers that are either empty or represented as a closed interval. For example, the intersection of [1, 3] and [2, 4] is [2, 3].
+
+
+
+Example 1:
+
+Input: firstList = [[0,2],[5,10],[13,23],[24,25]], secondList = [[1,5],[8,12],[15,24],[25,26]]
+Output: [[1,2],[5,5],[8,10],[15,23],[24,24],[25,25]]
+
+Example 2:
+
+Input: firstList = [[1,3],[5,9]], secondList = []
+Output: []
+
+
+
+Constraints:
+
+    0 <= firstList.length, secondList.length <= 1000
+    firstList.length + secondList.length >= 1
+    0 <= starti < endi <= 109
+    endi < starti+1
+    0 <= startj < endj <= 109
+    endj < startj+1
+
+```
+
+```
+class Solution {
+    public int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
+        if(firstList.length==0 || secondList.length==0) return new int[0][0];
+        int i = 0;
+        int j = 0;
+        int startMax = 0, endMin = 0;
+        List<int[]> ans = new ArrayList<>();
+
+        while(i<firstList.length && j<secondList.length){
+            startMax = Math.max(firstList[i][0],secondList[j][0]);
+            endMin = Math.min(firstList[i][1],secondList[j][1]);
+
+			//you have end greater than start and you already know that this interval is sorrounded with startMin and endMax so this must be the intersection
+			if(endMin>=startMax){
+                ans.add(new int[]{startMax,endMin});
+            }
+
+			//the interval with min end has been covered completely and have no chance to intersect with any other interval so move that list's pointer
+            if(endMin == firstList[i][1]) i++;
+            if(endMin == secondList[j][1]) j++;
+        }
+
+        return ans.toArray(new int[ans.size()][2]);
+    }
+}
+```
+
+## [987. Vertical Order Traversal of a Binary Tree](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/)
+
+```
+Given the root of a binary tree, calculate the vertical order traversal of the binary tree.
+
+For each node at position (row, col), its left and right children will be at positions (row + 1, col - 1) and (row + 1, col + 1) respectively. The root of the tree is at (0, 0).
+
+The vertical order traversal of a binary tree is a list of top-to-bottom orderings for each column index starting from the leftmost column and ending on the rightmost column. There may be multiple nodes in the same row and same column. In such a case, sort these nodes by their values.
+
+Return the vertical order traversal of the binary tree.
+
+
+
+Example 1:
+
+Input: root = [3,9,20,null,null,15,7]
+Output: [[9],[3,15],[20],[7]]
+Explanation:
+Column -1: Only node 9 is in this column.
+Column 0: Nodes 3 and 15 are in this column in that order from top to bottom.
+Column 1: Only node 20 is in this column.
+Column 2: Only node 7 is in this column.
+
+Example 2:
+
+Input: root = [1,2,3,4,5,6,7]
+Output: [[4],[2],[1,5,6],[3],[7]]
+Explanation:
+Column -2: Only node 4 is in this column.
+Column -1: Only node 2 is in this column.
+Column 0: Nodes 1, 5, and 6 are in this column.
+          1 is at the top, so it comes first.
+          5 and 6 are at the same position (2, 0), so we order them by their value, 5 before 6.
+Column 1: Only node 3 is in this column.
+Column 2: Only node 7 is in this column.
+
+Example 3:
+
+Input: root = [1,2,3,4,6,5,7]
+Output: [[4],[2],[1,5,6],[3],[7]]
+Explanation:
+This case is the exact same as example 2, but with nodes 5 and 6 swapped.
+Note that the solution remains the same since 5 and 6 are in the same location and should be ordered by their values.
+
+
+
+Constraints:
+
+    The number of nodes in the tree is in the range [1, 1000].
+    0 <= Node.val <= 1000
+
+
+```
+
+```
+class Solution {
+    public List<List<Integer>> verticalOrder(TreeNode root) {
+        List<List<Integer>> ans = new ArrayList<>();
+        if (root == null) {
+            return ans;
+        }
+        Deque<Pair<TreeNode, Integer>> q = new ArrayDeque<>();
+        q.offer(new Pair<>(root, 0));
+        TreeMap<Integer, List<Integer>> d = new TreeMap<>();
+        while (!q.isEmpty()) {
+            for (int n = q.size(); n > 0; --n) {
+                var p = q.pollFirst();
+                root = p.getKey();
+                int offset = p.getValue();
+                d.computeIfAbsent(offset, k -> new ArrayList()).add(root.val);
+                if (root.left != null) {
+                    q.offer(new Pair<>(root.left, offset - 1));
+                }
+                if (root.right != null) {
+                    q.offer(new Pair<>(root.right, offset + 1));
+                }
+            }
+        }
+        return new ArrayList<>(d.values());
+    }
+}
+```
